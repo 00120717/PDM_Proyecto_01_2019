@@ -5,23 +5,35 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.coclearapp.pdm_project.R
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.input_name
 import kotlinx.android.synthetic.main.activity_login.input_password
 import kotlinx.android.synthetic.main.activity_signup.*
+import java.io.File
 
 class LoginActivity : AppCompatActivity() {
 
 
+    private var isSignedUp = false
+    private var workingFile: File? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        //Si ya ingreso se envie automaticamente a la pantalla principal
+        if (updateLoggedInState()) {
 
-        btn_login.setOnClickListener { login() }
+            val context = applicationContext
+            val intenttoMain = Intent(context, MainActivity::class.java)
+            intenttoMain.putExtra(PWD_KEY, input_password.toString().toCharArray())
+            context.startActivity(intenttoMain)
+        }
+
+
 
         link_signup.setOnClickListener {
             // Start the Signup activity
@@ -32,13 +44,15 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    fun login() {
-        Log.d(TAG, "Login")
 
-        if (!validate()) {
-            onLoginFailed()
-            return
-        }
+    private fun updateLoggedInState(): Boolean {
+        val fileExists = workingFile?.exists() ?: false
+        return fileExists
+    }
+
+
+    fun loginPressed(view: View) {
+        Log.d(TAG, "Login")
 
         btn_login.isEnabled = false
 
@@ -51,7 +65,22 @@ class LoginActivity : AppCompatActivity() {
         progressDialog.show()
 
 
-        // TODO: Implement your own authentication logic here.
+        //  Implement your own authentication logic here.
+        // TODO: Validar en la base name y password
+
+        if (true) {
+            //Start main activity
+            val context = view.context
+            val Intent = Intent(context, MainActivity::class.java)
+            Intent.putExtra(PWD_KEY, input_password.toString().toCharArray())
+            context.startActivity(Intent)
+
+
+
+        } else {
+            onLoginFailed()
+        }
+
 
         android.os.Handler().postDelayed(
             {
@@ -64,7 +93,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
-    override  fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_SIGNUP) {
             if (resultCode == RESULT_OK) {
 
@@ -91,33 +120,11 @@ class LoginActivity : AppCompatActivity() {
         btn_login.isEnabled = true
     }
 
-    fun validate(): Boolean {
-        var valid = true
-
-        val name = input_name.text.toString()
-        val password = input_password.text.toString()
-
-        if (name.isEmpty() || name.length < 3) {
-            input_name!!.error = "Al menos 3 caracteres"
-            valid = false
-        } else {
-            input_name!!.error = null
-        }
-
-
-
-        if (password.isEmpty() || password.length < 4 || password.length > 10) {
-            input_password.error = "Entre 4 y 10 caracteres alfanumericos"
-            valid = false
-        } else {
-            input_password.error = null
-        }
-
-        return valid
-    }
-
     companion object {
         private val TAG = "LoginActivity"
         private val REQUEST_SIGNUP = 0
+        private const val PWD_KEY = "PWD"
     }
+
+
 }
