@@ -1,28 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+              android:orientation="vertical"
                 tools:context=".MainActivity">
 
     <FrameLayout
             android:layout_width="match_parent"
             android:id="@+id/fl_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/fg_bar_opcion"
+            android:layout_height="0dp"
+            android:layout_weight="3"
             >
 
 
     </FrameLayout>
 
-    <fragment
-            android:id="@+id/fg_bar_opcion"
-            class="com.example.pdm_project.LevelBarFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:tools="http://schemas.android.com/tools"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  tools:context=".LevelBarFragment">
 
-            tools:layout="@layout/fragment_levels_bar"/>
+        <ImageButton
+                android:id="@+id/btn_sounds"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_audi"/>
+
+        <ImageButton
+                android:id="@+id/btn_exercises"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/ic_abc"/>
+
+    </LinearLayout>
 
 
-</RelativeLayout>
+</LinearLayout>
