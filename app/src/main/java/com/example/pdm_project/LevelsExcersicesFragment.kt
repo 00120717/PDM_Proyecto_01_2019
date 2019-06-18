@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 
-class LevelsFragment: Fragment(){
+class LevelsExcersicesFragment: Fragment(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,19 +21,14 @@ class LevelsFragment: Fragment(){
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_levels_sounds, container, false).apply {
-
-            var level = model.sounds
-
-
-        }
+        // Inflate the layout for this fragment //apply para agregar funcionamiento al fragmento
+        return inflater.inflate(R.layout.fragment_levels_excersices, container, false)
     }
 
     companion object {
         @JvmStatic
         fun newInstance() =
-            LevelsFragment()
+            LevelsExcersicesFragment()
 
     }
 

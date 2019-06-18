@@ -1,11 +1,11 @@
 package com.example.pdm_project
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.fragment_levels_bar.*
+import kotlinx.android.synthetic.main.activity_levels.*
 
-class LevelsActivity: AppCompatActivity(),LevelBarFragment.OnTabListener{
+
+class LevelsActivity: AppCompatActivity(){
 
     lateinit var viewModelLevel: LevelViewModel
 
@@ -13,34 +13,29 @@ class LevelsActivity: AppCompatActivity(),LevelBarFragment.OnTabListener{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_levels)
 
-        if (savedInstanceState == null) {
-            var fragment: LevelsFragment = LevelsFragment.newInstance()
-            supportFragmentManager
-                .beginTransaction()
-                .add(R.id.fl_content, fragment).commit()
+
+        btn_exercises.setOnClickListener {
+            changeFragmentExercises()
         }
 
         btn_sounds.setOnClickListener {
-            changeFragmentType()
-        }
 
-        btn_exercises.setOnClickListener {
-            changeFragmentType()
+            changeFragmentSounds()
         }
 
     }
 
+    fun changeFragmentSounds() {
+        var fragment = LevelsSoundsFragment.newInstance()
 
-    override fun onLevelSelect(typeLevel: String) {
-
-        viewModelLevel.sounds = typeLevel
-
-        changeFragmentType()
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fl_content, fragment)
+            .commit()
     }
 
-
-    fun changeFragmentType() {
-        var fragment = LevelsFragment.newInstance()
+    fun changeFragmentExercises() {
+        var fragment = LevelsExcersicesFragment.newInstance()
 
         supportFragmentManager
             .beginTransaction()
