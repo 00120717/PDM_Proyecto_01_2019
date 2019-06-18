@@ -12,6 +12,7 @@
             android:layout_above="@id/fg_bar_opcion"
             >
 
+
     </FrameLayout>
 
     <fragment

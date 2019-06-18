@@ -3,33 +3,31 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:gravity="center"
->
+              android:gravity="center">
 
     <ImageButton
             android:id="@+id/ib_level1"
-            android:layout_width="wrap_content"
+            android:layout_width="448dp"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:src="@drawable/principiante1"
+            android:background="@drawable/principiante2"
             android:gravity="center"
     />
 
-
     <ImageButton
             android:id="@+id/ib_level2"
-            android:layout_width="wrap_content"
+            android:layout_width="456dp"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:src="@drawable/intermedio1"
+            android:background="@drawable/intermedio2"
     />
 
 
     <ImageButton
             android:id="@+id/ib_level3"
-            android:layout_width="wrap_content"
+            android:layout_width="462dp"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:src="@drawable/avanzado1"
+            android:background="@drawable/avanzado2"
     />
 </LinearLayout>
