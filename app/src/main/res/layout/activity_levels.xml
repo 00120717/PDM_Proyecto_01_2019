@@ -9,23 +9,26 @@
     <FrameLayout
             android:layout_width="match_parent"
             android:id="@+id/fl_content"
+            android:background="#fff"
             android:layout_height="0dp"
-            android:layout_weight="3"
-            >
+            android:layout_weight="7" >
+
     </FrameLayout>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   xmlns:tools="http://schemas.android.com/tools"
                   android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
+                  android:layout_height="0dp"
+                  android:layout_weight="1"
                   android:orientation="horizontal"
                   tools:context=".LevelBarFragment">
 
         <ImageButton
                 android:id="@+id/btn_sounds"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#fff"
                 android:src="@drawable/ic_audi"/>
 
         <ImageButton
@@ -33,9 +36,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#fff"
                 android:src="@drawable/ic_abc"/>
 
     </LinearLayout>
-
 
 </LinearLayout>

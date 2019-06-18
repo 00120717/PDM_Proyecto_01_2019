@@ -68,7 +68,7 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/common_google_signin_btn_text_dark"
+        android:backgroundTint="@color/cardview_shadow_end_color"
         android:src="@drawable/ic_add_box_black_24dp" />
 
 </LinearLayout>
