@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">PDM_Project</string>
+    <string name="app_name">ABCoclear</string>
     <string name="pacient_name">Nombre del Paciente:</string>
-    <string name="age_pacient">Edad del Paciente:</string>
+    <string name="age_pacient">Fecha Nacimiento del Paciente:</string>
+    <string name="day_string">Dia</string>
+    <string name="mounth_string">Mes</string>
+    <string name="year_string">Año</string>
 </resources>

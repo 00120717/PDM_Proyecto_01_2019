@@ -16,5 +16,10 @@ class MainActivity : AppCompatActivity() {
         btnlevel.setOnClickListener{
                 startActivity(Intent(this,LevelsActivity::class.java))
         }
+
+        btnNew.setOnClickListener{
+            startActivity(Intent(this,NewPatientActivity::class.java))
+        }
+
     }
 }
