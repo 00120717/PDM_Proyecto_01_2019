@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="medium_size">24dp</dimen>
+    <dimen name="small_size">8dp</dimen>
+    <dimen name="medium_size">16dp</dimen>
+    <dimen name="high_size">24dp</dimen>
+    <dimen name="extra_size">32dp</dimen>
 </resources>

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PDM_Project</string>
+    <string name="pacient_name">Nombre del Paciente:</string>
+    <string name="age_pacient">Edad del Paciente:</string>
 </resources>

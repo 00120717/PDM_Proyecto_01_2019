@@ -17,10 +17,10 @@ class LevelBarFragment: Fragment(){
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_levels_bar, container, false).apply {
-            bt_sounds.setOnClickListener {
+            btn_sounds.setOnClickListener {
                 onButtonPressed(Level.SONIDOS)
             }
-            bt_exercises.setOnClickListener {
+            btn_exercises.setOnClickListener {
                 onButtonPressed(Level.EJERCICIOS)
             }
 
@@ -28,7 +28,7 @@ class LevelBarFragment: Fragment(){
     }
 
     fun onButtonPressed(season: String) {
-        listener?.onSeasonSelect(season)
+        listener?.onLevelSelect(season)
     }
 
     override fun onAttach(context: Context) {
@@ -46,7 +46,7 @@ class LevelBarFragment: Fragment(){
     }
 
     interface OnTabListener {
-        fun onSeasonSelect(season: String)
+        fun onLevelSelect(season: String)
     }
 
     companion object {

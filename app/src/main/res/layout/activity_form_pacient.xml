@@ -2,6 +2,48 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:gravity="center"
+              android:padding="@dimen/small_size"
+>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pacient_name"
+            android:textSize="@dimen/extra_size"
+            android:textColor="@android:color/background_dark"
+            android:gravity="center"
+    />
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/pacient_name"
+            android:textSize="@dimen/extra_size"
+    />
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/age_pacient"
+            android:textSize="@dimen/extra_size"
+            android:textColor="@android:color/background_dark"
+            android:gravity="center"
+    />
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/age_pacient"
+            android:textSize="@dimen/extra_size"
+    />
+
+<ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add_box_black_24dp"
+        android:backgroundTint="@color/common_google_signin_btn_text_dark"
+/>
 
 </LinearLayout>

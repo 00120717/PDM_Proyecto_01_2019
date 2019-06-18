@@ -2,6 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:gravity="center">
 
+    <ImageButton
+            android:id="@+id/ib_level1"
+            android:layout_width="448dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/principiante1"
+            android:gravity="center"
+    />
+
+    <ImageButton
+            android:id="@+id/ib_level2"
+            android:layout_width="456dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/intermedio1"
+    />
+
+
+    <ImageButton
+            android:id="@+id/ib_level3"
+            android:layout_width="462dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/avanzado1"
+    />
 </LinearLayout>
