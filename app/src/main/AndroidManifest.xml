@@ -30,4 +30,8 @@
         </activity>
     </application>
 
+    <activity android:name=".LevelsActivity" android:screenOrientation="landscape"/>
+    <activity android:name=".NewPatientActivity" android:screenOrientation="landscape"/>
 </manifest>
+
+
