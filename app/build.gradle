@@ -7,8 +7,9 @@ apply plugin: 'com.google.gms.google-services'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.pdm_project"
-        minSdkVersion 16
+
+        applicationId "com.coclearapp.pdm_project"
+        minSdkVersion 14
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
