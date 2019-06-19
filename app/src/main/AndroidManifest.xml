@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
+
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -12,6 +13,7 @@
             android:installLocation = "internalOnly"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+
         <activity android:name="com.coclearapp.pdm_project.Activities.LoginActivity"
                   android:screenOrientation="userLandscape">
 
@@ -21,6 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
         <activity android:name="com.coclearapp.pdm_project.Activities.SignupActivity"
                   android:screenOrientation="userLandscape">
         </activity>
@@ -28,10 +31,14 @@
                   android:screenOrientation="userLandscape">
 
         </activity>
+
+        <activity android:name="com.coclearapp.pdm_project.LevelsActivity" android:screenOrientation="userLandscape"/>
+        <activity android:name="com.coclearapp.pdm_project.NewPatientActivity" android:screenOrientation="userLandscape"/>
+
     </application>
 
-    <activity android:name=".LevelsActivity" android:screenOrientation="landscape"/>
-    <activity android:name=".NewPatientActivity" android:screenOrientation="landscape"/>
+    <activity android:name=".LevelsActivity" android:screenOrientation="userLandscape"/>
+    <activity android:name=".NewPatientActivity" android:screenOrientation="userLandscape"/>
 </manifest>
 
 

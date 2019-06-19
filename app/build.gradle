@@ -2,10 +2,12 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 28
     defaultConfig {
+
         applicationId "com.coclearapp.pdm_project"
         minSdkVersion 14
         targetSdkVersion 28
@@ -33,6 +35,10 @@ repositories {
 }
 
 dependencies {
+
+    //firebase dependency
+    implementation 'com.google.firebase:firebase-core:16.0.9'
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
@@ -40,9 +46,10 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     implementation 'androidx.core:core-ktx:1.0.2'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha05'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
-
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.1.17'
 
     // Dependencies for working with Architecture components
     // You'll probably have to update the version numbers in guild.gradle (Project)
@@ -64,5 +71,6 @@ dependencies {
     androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
 
 }

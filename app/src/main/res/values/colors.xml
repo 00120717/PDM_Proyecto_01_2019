@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#1faa00</color>
     <color name="colorAccent">#9cff57</color>
 
+
     <color name="primary">#E43F3F</color>
     <color name="primary_dark">#E12929</color>
     <color name="primary_darker">#CC1D1D</color>
@@ -18,4 +19,5 @@
     <color name="base">#AAAAAA</color>
     <color name="iron">#CCCCCC</color>
     <color name="white">#FFFFFF</color>
+
 </resources>
