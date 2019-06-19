@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.coclearapp.pdm_project.R
 
 class GridAdapter(private val place: IntArray, private val name:Array<String>, private val context: Context)
     :RecyclerView.Adapter<GridHolder>(){

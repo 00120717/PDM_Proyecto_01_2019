@@ -1,52 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:padding="10dp"
->
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
 
     <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="10dp"
-    >
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp">
 
         <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:padding="@dimen/medium_size"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="@dimen/medium_size"
+            android:background="@drawable/rounded_edge"
+            >
 
-        >
             <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/ic_tag_faces_black_24dp"
-            />
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/ic_assignment_ind_black_24dp" />
 
             <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="5"
-                    android:text="@string/pacient_name"
-                    android:textSize="@dimen/extra_size"
-                    android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                    android:gravity="center"
-            />
+                android:id="@+id/patient_name"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:text="@string/pacient_name"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="@dimen/extra_size" />
 
             <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:text="Nivel 1"
-                    android:textSize="@dimen/extra_size"
-                    android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                    android:gravity="center"
-            />
+                android:id="@+id/patient_level"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="@dimen/extra_size" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<<<<<<< HEAD
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
     <color name="transparent">#12554E55</color>
-    <color name="white">#fff</color>
-=======
+
     <color name="colorPrimary">#64dd17</color>
     <color name="colorPrimaryDark">#1faa00</color>
     <color name="colorAccent">#9cff57</color>
@@ -27,5 +22,4 @@
     <color name="iron">#CCCCCC</color>
     <color name="white">#FFFFFF</color>
 
->>>>>>> 4b37b7fe722bef6084d8d39d392cce3195e60ad7
 </resources>
