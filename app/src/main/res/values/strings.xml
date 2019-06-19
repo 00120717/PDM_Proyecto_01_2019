@@ -1,5 +1,18 @@
 <resources>
-    <string name="app_name">PDM_Project</string>
+    <string name="app_name">ABCoclear</string>
     <string name="pacient_name">Nombre del Paciente:</string>
-    <string name="age_pacient">Edad del Paciente:</string>
+    <string name="age_pacient">Fecha Nacimiento del Paciente:</string>
+    <string name="day_string">Dia</string>
+    <string name="mounth_string">Mes</string>
+    <string name="year_string">Año</string>
+    <string name="re_enter_password">Re-ingresa Contraseña</string>
+    <string name="voluntario">Voluntario</string>
+    <string name="terapeuta">Terapeuta</string>
+    <string name="padre_de_familia">Padre de familia</string>
+    <string name="ya_estas_registrado_inicia_sesion">¿Ya estas registrado? Inicia Sesion</string>
+    <string name="crear_cuenta">Crear Cuenta</string>
+    <string name="nombre">Nombre</string>
+    <string name="password">Contraseña</string>
+    <string name="inicia_sesion">Inicia Sesion</string>
+    <string name="aun_no_tienes_cuenta">¿Aun no tienes cuenta? Crea una</string>
 </resources>
