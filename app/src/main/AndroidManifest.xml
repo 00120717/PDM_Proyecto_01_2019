@@ -37,8 +37,7 @@
 
     </application>
 
-    <activity android:name=".LevelsActivity" android:screenOrientation="userLandscape"/>
-    <activity android:name=".NewPatientActivity" android:screenOrientation="userLandscape"/>
+
 </manifest>
 
 
