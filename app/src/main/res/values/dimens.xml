@@ -4,4 +4,6 @@
     <dimen name="medium_size">16dp</dimen>
     <dimen name="high_size">24dp</dimen>
     <dimen name="extra_size">32dp</dimen>
+    <dimen name="letter_size">50dp</dimen>
+    <dimen name="size_container_letter">70dp</dimen>
 </resources>

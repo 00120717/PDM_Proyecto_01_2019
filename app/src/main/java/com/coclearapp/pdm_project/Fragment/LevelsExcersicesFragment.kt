@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.coclearapp.pdm_project.ViewModel.LevelViewModel
 import com.coclearapp.pdm_project.R
+import kotlinx.android.synthetic.main.fragment_levels_excersices.view.*
 import kotlinx.android.synthetic.main.fragment_levels_sounds.*
 
 class LevelsExcersicesFragment: Fragment(){
@@ -24,12 +25,8 @@ class LevelsExcersicesFragment: Fragment(){
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment //apply para agregar funcionamiento al fragmento
-        return inflater.inflate(R.layout.fragment_levels_excersices, container, false).apply {
-            ib_level1.setOnClickListener{
-                inflater.inflate(R.layout.fragment_grid_exercises,container,false)
-            }
-        }
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_levels_excersices, container, false)
     }
 
     companion object {

@@ -6,7 +6,7 @@
               android:gravity="center">
 
     <ImageButton
-            android:id="@+id/ib_level1"
+            android:id="@+id/ib_excersises_level1"
             android:layout_width="448dp"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -15,7 +15,7 @@
     />
 
     <ImageButton
-            android:id="@+id/ib_level2"
+            android:id="@+id/ib_excersises_level2"
             android:layout_width="456dp"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -24,7 +24,7 @@
 
 
     <ImageButton
-            android:id="@+id/ib_level3"
+            android:id="@+id/ib_excersises_level3"
             android:layout_width="462dp"
             android:layout_height="0dp"
             android:layout_weight="1"
