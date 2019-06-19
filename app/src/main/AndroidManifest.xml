@@ -10,7 +10,7 @@
             android:icon="@mipmap/ic_launcher"
             android:label="ABC Cocleando"
             android:roundIcon="@mipmap/ic_launcher_round"
-            android:installLocation = "internalOnly"
+            android:installLocation="internalOnly"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
 
@@ -32,8 +32,10 @@
 
         </activity>
 
-        <activity android:name="com.coclearapp.pdm_project.Activities.LevelsActivity" android:screenOrientation="userLandscape"/>
-        <activity android:name="com.coclearapp.pdm_project.Activities.NewPatientActivity" android:screenOrientation="userLandscape"/>
+        <activity android:name="com.coclearapp.pdm_project.Activities.LevelsActivity"
+                  android:screenOrientation="userLandscape"/>
+        <activity android:name="com.coclearapp.pdm_project.Activities.NewPatientActivity"
+                  android:screenOrientation="userLandscape"/>
 
     </application>
 

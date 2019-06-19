@@ -17,7 +17,6 @@ import java.io.File
 class LoginActivity : AppCompatActivity() {
 
 
-    private var isSignedUp = false
     private var workingFile: File? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,9 +1,9 @@
 package com.coclearapp.pdm_project.Security
 
-import android.annotation.TargetApi
 import android.os.Build
 import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyProperties
+import android.text.Editable
 import android.util.Log
 import androidx.annotation.RequiresApi
 import java.security.KeyStore
@@ -156,7 +156,7 @@ internal class Encryption {
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    fun keystoreTest() {
+    fun keystoreTest(text: Editable) {
 
         //TODO - Add Test code here
         val keyGenerator = KeyGenerator.getInstance(KeyProperties.KEY_ALGORITHM_AES, "AndroidKeyStore")
@@ -171,10 +171,15 @@ internal class Encryption {
         keyGenerator.init(keyGenParameterSpec)
         keyGenerator.generateKey()
 
-        val map = keystoreEncrypt("Holaaa".toByteArray(Charsets.UTF_8))
+        val map = keystoreEncrypt(text.toString().toByteArray(Charsets.UTF_8))
+
+        Log.d("Encrypted pass",map.toString())
+
         val decryptedBytes = keystoreDecrypt(map)
         decryptedBytes?.let {
             val decryptedString = String(it, Charsets.UTF_8)
+
+            // Todo():Borrar despues
             Log.e("MyApp", "The decrypted string is: $decryptedString")
         }
     }

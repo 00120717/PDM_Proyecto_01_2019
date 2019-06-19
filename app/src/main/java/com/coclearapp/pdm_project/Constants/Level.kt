@@ -1,4 +1,4 @@
-package com.coclearapp.pdm_project
+package com.coclearapp.pdm_project.Constants
 
 object Level{
     const val SONIDOS = "sonidos"

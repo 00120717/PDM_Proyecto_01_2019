@@ -6,30 +6,25 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.security.keystore.KeyGenParameterSpec
-import android.security.keystore.KeyProperties
 import android.util.Base64
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.core.view.isEmpty
 import com.coclearapp.pdm_project.R
 import com.coclearapp.pdm_project.Security.Encryption
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_signup.*
 import kotlinx.android.synthetic.main.activity_signup.input_name
 import kotlinx.android.synthetic.main.activity_signup.input_password
 import java.io.File
-import java.io.FileOutputStream
-import java.io.ObjectOutputStream
 import java.text.DateFormat
 import java.util.*
-import javax.crypto.KeyGenerator
 
 
 class SignupActivity : AppCompatActivity() {
 
-    private var isSignedUp = false
+
     private var workingFile: File? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -74,8 +69,6 @@ class SignupActivity : AppCompatActivity() {
         //TODO:GUARDAR EN BASE
         saveLastLoggedInTime()
 
-        // TODO:BORRAR
-       // Log.d("decryptpassword",Encryption().decrypt())
 
         //Start main activity
         val context = view.context
@@ -83,10 +76,7 @@ class SignupActivity : AppCompatActivity() {
         Intent.putExtra(PWD_KEY2, input_password.toString().toCharArray())
         context.startActivity(Intent)
 
-        Encryption().keystoreTest()
-
-
-
+        Encryption().keystoreTest(input_password.text)
 
 
         android.os.Handler().postDelayed(
@@ -119,7 +109,7 @@ class SignupActivity : AppCompatActivity() {
 
         //Decrypt
         val decrypted = Encryption().decrypt(
-            hashMapOf("iv" to iv, "salt" to salt, "encrypted" to encrypted), password)
+                hashMapOf("iv" to iv, "salt" to salt, "encrypted" to encrypted), password)
 
         var lastLoggedIn: String? = null
         decrypted?.let {
@@ -136,7 +126,7 @@ class SignupActivity : AppCompatActivity() {
         //Base64 the data
         val currentDateTimeString = DateFormat.getDateTimeInstance().format(Date())
         val map =
-            Encryption().encrypt(currentDateTimeString.toByteArray(Charsets.UTF_8), password)
+                Encryption().encrypt(currentDateTimeString.toByteArray(Charsets.UTF_8), password)
         val valueBase64String = Base64.encodeToString(map["encrypted"], Base64.NO_WRAP)
         val saltBase64String = Base64.encodeToString(map["salt"], Base64.NO_WRAP)
         val ivBase64String = Base64.encodeToString(map["iv"], Base64.NO_WRAP)
@@ -193,12 +183,15 @@ class SignupActivity : AppCompatActivity() {
             input_reEnterPassword!!.error = null
         }
 
-        //TODO:FALTA RADIOGROUP
+        if (rg_tipo.getCheckedRadioButtonId() == -1) {
+            rb_Voluntario!!.error = "Seleccionar algun tipo"
+            valid = false
+        } else {
+            rb_Voluntario!!.error = null
+        }
 
         return valid
     }
-
-
 
 
     companion object {
