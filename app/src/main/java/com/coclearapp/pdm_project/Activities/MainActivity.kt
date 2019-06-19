@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.coclearapp.pdm_project.R
+import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -12,23 +13,23 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_home)
 
 
-        btnlevel.setOnClickListener{
+        add_patient.setOnClickListener{
                 startActivity(
                     Intent(
                         this,
-                        LevelsActivity::class.java
+                        NewPatientActivity::class.java
                     )
                 )
         }
 
-        btnNew.setOnClickListener{
+        list_patients.setOnClickListener{
             startActivity(
                 Intent(
                     this,
-                    NewPatientActivity::class.java
+                    PatientsActivity::class.java
                 )
             )
         }

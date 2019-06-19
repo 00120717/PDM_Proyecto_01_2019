@@ -6,6 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.coclearapp.pdm_project.R
 
 class GridHolder(itemView: View, private val context: Context) : RecyclerView.ViewHolder(itemView){
     private val imageview:ImageView

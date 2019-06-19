@@ -36,6 +36,7 @@
                   android:screenOrientation="userLandscape"/>
         <activity android:name="com.coclearapp.pdm_project.Activities.NewPatientActivity"
                   android:screenOrientation="userLandscape"/>
+        <activity android:name=".Activities.PatientsActivity" android:screenOrientation="landscape"/>
 
     </application>
 
