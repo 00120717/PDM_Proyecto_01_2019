@@ -32,8 +32,8 @@
 
         </activity>
 
-        <activity android:name="com.coclearapp.pdm_project.LevelsActivity" android:screenOrientation="userLandscape"/>
-        <activity android:name="com.coclearapp.pdm_project.NewPatientActivity" android:screenOrientation="userLandscape"/>
+        <activity android:name="com.coclearapp.pdm_project.Activities.LevelsActivity" android:screenOrientation="userLandscape"/>
+        <activity android:name="com.coclearapp.pdm_project.Activities.NewPatientActivity" android:screenOrientation="userLandscape"/>
 
     </application>
 

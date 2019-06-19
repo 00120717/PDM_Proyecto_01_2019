@@ -1,4 +1,4 @@
-package com.coclearapp.pdm_project
+package com.coclearapp.pdm_project.Fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import com.coclearapp.pdm_project.ViewModel.LevelViewModel
+import com.coclearapp.pdm_project.R
 
 class LevelsExcersicesFragment: Fragment(){
 

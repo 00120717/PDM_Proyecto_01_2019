@@ -1,8 +1,12 @@
-package com.coclearapp.pdm_project
+package com.coclearapp.pdm_project.Activities
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.coclearapp.pdm_project.ViewModel.LevelViewModel
+import com.coclearapp.pdm_project.Fragment.LevelsExcersicesFragment
+import com.coclearapp.pdm_project.Fragment.LevelsSoundsFragment
+import com.coclearapp.pdm_project.R
 import kotlinx.android.synthetic.main.activity_levels.*
 
 
