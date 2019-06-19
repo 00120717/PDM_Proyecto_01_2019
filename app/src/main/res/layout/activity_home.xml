@@ -8,12 +8,14 @@
 >
 
     <ImageButton
+            android:id="@+id/add_patient"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/ic_person_add_black_24dp"
     />
     <ImageButton
+            android:id="@+id/list_patients"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"

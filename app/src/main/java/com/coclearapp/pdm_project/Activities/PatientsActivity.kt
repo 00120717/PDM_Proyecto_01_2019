@@ -19,7 +19,7 @@ class PatientsActivity: AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_patients)
-        initRecycle(emptyList())
+        initRecycle(listOf(Patient(Name_Patient = "oscar",Date = "10",Level = 1)))
 
     }
 
