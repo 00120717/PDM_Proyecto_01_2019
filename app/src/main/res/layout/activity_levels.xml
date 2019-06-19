@@ -6,18 +6,29 @@
     android:orientation="vertical"
     tools:context=".Activities.LevelsActivity">
 
+    <TextView
+        android:id="@+id/patient_name_levels"
+        android:layout_width="match_parent"
+        android:text="@string/nombre"
+        android:gravity="end"
+        android:background="@color/white"
+        android:fontFamily="@font/roboto_medium"
+        android:textColor="#e64a19"
+        android:textSize="@dimen/high_size"
+        android:layout_height="wrap_content" />
+
     <FrameLayout
         android:id="@+id/fl_content"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="7"
-        android:background="#fff">
+        android:background="@color/white">
 
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/gif_help"
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:src="@drawable/flechas_gif_21" />
 
     </FrameLayout>
@@ -35,7 +46,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#fff"
+            android:background="@color/white"
             android:src="@drawable/ic_audi" />
 
         <ImageButton
@@ -43,7 +54,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#fff"
+            android:background="@color/white"
             android:src="@drawable/ic_abc" />
 
     </LinearLayout>

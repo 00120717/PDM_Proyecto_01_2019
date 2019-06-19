@@ -18,6 +18,7 @@ class LevelsActivity: AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_levels)
 
+        patient_name_levels.text = intent.getStringExtra("name")
 
         btn_exercises.setOnClickListener {
             gif_help.visibility = View.INVISIBLE
