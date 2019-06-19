@@ -1,11 +1,13 @@
 package com.coclearapp.pdm_project.Fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import com.coclearapp.pdm_project.Activities.NewPatientActivity
 import com.coclearapp.pdm_project.ViewModel.LevelViewModel
 import com.coclearapp.pdm_project.R
 import kotlinx.android.synthetic.main.fragment_levels_excersices.view.*
@@ -26,7 +28,16 @@ class LevelsExcersicesFragment: Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_levels_excersices, container, false)
+        return inflater.inflate(R.layout.fragment_levels_excersices, container, false).apply {
+            ib_excersises_level1.setOnClickListener {
+                startActivity(
+                    Intent(
+                        it.context,
+                        NewPatientActivity::class.java
+                    )
+                )
+            }
+        }
     }
 
     companion object {
