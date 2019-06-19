@@ -1,4 +1,4 @@
-package com.example.pdm_project
+package com.coclearapp.pdm_project.GridContainer
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 
 import androidx.recyclerview.widget.RecyclerView
+import com.coclearapp.pdm_project.GridContainer.GridAdapter
 
 class GridExercisesFragment: Fragment(){
 
@@ -25,7 +26,8 @@ class GridExercisesFragment: Fragment(){
             val lManager = GridLayoutManager(this@GridExercisesFragment,3,VERTICAL,false)
             rview.layoutManager = lManager
 
-            rview.adapter = GridAdapter(place,name,this@GridExercisesFragment.context!!)
+            rview.adapter =
+                GridAdapter(place, name, this@GridExercisesFragment.context!!)
         }
     }
 
