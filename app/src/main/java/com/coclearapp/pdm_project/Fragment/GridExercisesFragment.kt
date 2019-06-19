@@ -1,15 +1,13 @@
-package com.coclearapp.pdm_project.GridContainer
+package com.coclearapp.pdm_project.Fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.GridLayout.VERTICAL
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 
 import androidx.recyclerview.widget.RecyclerView
-import com.coclearapp.pdm_project.Fragment.LevelsExcersicesFragment
 import com.coclearapp.pdm_project.GridContainer.GridAdapter
 import com.coclearapp.pdm_project.R
 

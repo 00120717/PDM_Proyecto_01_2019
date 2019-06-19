@@ -15,6 +15,4 @@ data class Patient(
         val Date: String,
         @ColumnInfo(name = "Level")
         val Level: Int
-
-
 )
