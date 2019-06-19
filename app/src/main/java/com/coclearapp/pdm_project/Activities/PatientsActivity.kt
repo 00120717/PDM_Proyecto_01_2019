@@ -19,7 +19,7 @@ class PatientsActivity: AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_patients)
-        initRecycle(listOf(Patient(Name_Patient = "oscar",Date = "10",Level = 1)))
+        initRecycle(listOf(Patient(Name_Patient = "oscar",Date = "10",Level = 1),Patient(Name_Patient = "conan",Date = "15",Level = 3)))
 
     }
 
@@ -27,7 +27,7 @@ class PatientsActivity: AppCompatActivity(){
         viewManager = LinearLayoutManager(this)
 
 
-        viewAdapter = PatientAdapter(patients,{ bookitem: Patient-> patientItemClicked(bookitem)})
+        viewAdapter = PatientAdapter(patients,{ patientitem: Patient-> patientItemClicked(patientitem)})
 
         rv_patients.apply {
             setHasFixedSize(true)
@@ -38,6 +38,6 @@ class PatientsActivity: AppCompatActivity(){
 
     private fun patientItemClicked(item: Patient){
 
-        startActivity(Intent(this, LevelsActivity::class.java))
+        startActivity(Intent(this, LevelsActivity::class.java).putExtra("name",item.Name_Patient))
     }
 }
