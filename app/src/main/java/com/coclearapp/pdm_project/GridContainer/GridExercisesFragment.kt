@@ -25,18 +25,16 @@ class GridExercisesFragment: Fragment(){
             val rview = findViewById<View>(R.id.rview) as RecyclerView
             val place = intArrayOf(1,2,3,4,5)
             val name = arrayOf("A","E","I","O","U")
-            val lManager = GridLayoutManager(this@GridExercisesFragment,3,VERTICAL,false)
+            val lManager = GridLayoutManager(getContext(),3)
             rview.layoutManager = lManager
 
-            rview.adapter =
-                GridAdapter(place, name, this@GridExercisesFragment.context!!)
+            rview.adapter = GridAdapter(place, name, this@GridExercisesFragment.context!!)
         }
     }
 
     companion object {
         @JvmStatic
-        fun newInstance() =
-            LevelsExcersicesFragment()
+        fun newInstance() = LevelsExcersicesFragment()
 
     }
 
