@@ -1,4 +1,4 @@
-package com.example.pdm_project
+package com.coclearapp.pdm_project
 
 import android.os.Bundle
 import android.view.LayoutInflater

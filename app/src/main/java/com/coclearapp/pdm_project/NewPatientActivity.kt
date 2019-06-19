@@ -1,6 +1,5 @@
-package com.example.pdm_project
+package com.coclearapp.pdm_project
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 

@@ -1,4 +1,4 @@
-package com.example.pdm_project
+package com.coclearapp.pdm_project
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4

@@ -1,9 +1,8 @@
-package com.example.pdm_project
+package com.coclearapp.pdm_project
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isInvisible
 import kotlinx.android.synthetic.main.activity_levels.*
 
 
