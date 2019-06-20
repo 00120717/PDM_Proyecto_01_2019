@@ -18,6 +18,7 @@ import com.coclearapp.pdm_project.R
 import com.coclearapp.pdm_project.ViewModel.LevelViewModel
 import kotlinx.android.synthetic.main.activity_patients.*
 import kotlinx.android.synthetic.main.fragment_grid_exercises.*
+import kotlinx.android.synthetic.main.fragment_grid_exercises.view.*
 
 class GridExercisesFragment(level: Int): Fragment(){
 
@@ -53,8 +54,11 @@ class GridExercisesFragment(level: Int): Fragment(){
 
         var view = inflater.inflate(R.layout.fragment_grid_exercises, container, false)
 
-        rview.apply {
+
+
+        view.rview.apply {
             layoutManager = LinearLayoutManager(this.context)
+            adapter = PatientAdapter(listOf(Patient(name = "oscar",birthday = "10",level = 1),Patient(name = "marvin",birthday = "10",level = 1)),{ patientitem: Patient-> patientItemClicked(patientitem)})
 
         }
 
