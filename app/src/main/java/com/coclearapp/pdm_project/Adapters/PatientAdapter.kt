@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.coclearapp.pdm_project.Models.Patient
 import com.coclearapp.pdm_project.R
+
 import kotlinx.android.synthetic.main.cardview_patient.view.*
 
 class PatientAdapter(var items : List<Patient>, val clickListener : (Patient) -> Unit) : RecyclerView.Adapter<PatientAdapter.ViewHolder>() {

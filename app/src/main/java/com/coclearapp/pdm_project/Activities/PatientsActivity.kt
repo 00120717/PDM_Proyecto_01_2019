@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.coclearapp.pdm_project.Adapters.PatientAdapter
 import com.coclearapp.pdm_project.Models.Patient
+
 import com.coclearapp.pdm_project.R
+
 
 import kotlinx.android.synthetic.main.activity_patients.*
 
