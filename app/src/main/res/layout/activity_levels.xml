@@ -15,7 +15,8 @@
         android:fontFamily="@font/roboto_medium"
         android:textColor="#e64a19"
         android:textSize="@dimen/high_size"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:paddingRight="10dp"/>
 
     <FrameLayout
         android:id="@+id/fl_content"
