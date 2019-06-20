@@ -22,6 +22,7 @@ import java.text.DateFormat
 import java.util.*
 
 
+@Suppress("DEPRECATION")
 class SignupActivity : AppCompatActivity() {
 
 

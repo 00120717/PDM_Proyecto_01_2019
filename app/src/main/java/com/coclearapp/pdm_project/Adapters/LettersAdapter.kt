@@ -4,11 +4,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.coclearapp.pdm_project.Models.Sound
 import com.coclearapp.pdm_project.R
-import com.coclearapp.pdm_project.Room.Entity.Sound
 import kotlinx.android.synthetic.main.level_item.view.*
 
-class LettersAdapter(var letters:List<Sound>,val clicklistener: (Sound)->Unit):RecyclerView.Adapter<LettersAdapter.ViewHolder>(){
+class LettersAdapter(var letters:List<Sound>, val clicklistener: (Sound)->Unit):RecyclerView.Adapter<LettersAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LettersAdapter.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.level_item, parent, false)

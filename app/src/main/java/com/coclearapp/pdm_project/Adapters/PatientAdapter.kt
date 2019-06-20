@@ -4,11 +4,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.coclearapp.pdm_project.Models.Patient
 import com.coclearapp.pdm_project.R
-import com.coclearapp.pdm_project.Room.Entity.Patient
 import kotlinx.android.synthetic.main.cardview_patient.view.*
 
-class PatientAdapter( var items : List<Patient>, val clickListener : (Patient) -> Unit) : RecyclerView.Adapter<PatientAdapter.ViewHolder>() {
+class PatientAdapter(var items : List<Patient>, val clickListener : (Patient) -> Unit) : RecyclerView.Adapter<PatientAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.cardview_patient, parent, false)
@@ -32,8 +32,8 @@ class PatientAdapter( var items : List<Patient>, val clickListener : (Patient) -
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(item: Patient, clickListener: (Patient) -> Unit) = with(itemView) {
-            patient_name.text = item.Name_Patient
-            patient_level.text = item.Level.toString()
+            patient_name.text = item.name
+            patient_level.text = item.level.toString()
             this.setOnClickListener { clickListener(item) }
         }
     }

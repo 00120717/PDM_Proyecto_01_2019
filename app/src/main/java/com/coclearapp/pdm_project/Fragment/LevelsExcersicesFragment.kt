@@ -30,12 +30,18 @@ class LevelsExcersicesFragment: Fragment(){
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_levels_excersices, container, false).apply {
             ib_excersises_level1.setOnClickListener {
-                startActivity(
+             /*   startActivity(
                     Intent(
                         it.context,
                         NewPatientActivity::class.java
                     )
-                )
+                )*/
+                var fragment = GridExercisesFragment.newInstance()
+
+                fragmentManager!!
+                    .beginTransaction()
+                    .replace(R.id.fl_content, fragment)
+                    .commit()
             }
         }
     }
