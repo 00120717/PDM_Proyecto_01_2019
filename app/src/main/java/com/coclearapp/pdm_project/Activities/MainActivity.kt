@@ -35,4 +35,9 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+    override fun onBackPressed() {
+        // Disable going back to the MainActivity
+        moveTaskToBack(true)
+    }
 }

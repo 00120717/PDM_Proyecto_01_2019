@@ -2,17 +2,13 @@ package com.coclearapp.pdm_project.Activities
 
 import android.app.ProgressDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils
 import android.util.Log
-import android.view.View
 import android.widget.Toast
-import androidx.annotation.VisibleForTesting
+import androidx.appcompat.app.AppCompatActivity
 import com.coclearapp.pdm_project.R
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_signup.*
 import java.io.File
 
 class LoginActivity : AppCompatActivity() {
@@ -32,7 +28,12 @@ class LoginActivity : AppCompatActivity() {
 
 
         btn_login.setOnClickListener {
+
             signIn(lg_input_mail.text.toString(), lg_input_password.text.toString())
+
+            //    Toast.makeText(this, "Falta Credenciales", Toast.LENGTH_SHORT).show()
+
+
         }
 
         link_signup.setOnClickListener {
@@ -45,10 +46,11 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
-
     private fun signIn(email: String, password: String) {
         Log.d(TAG, "signIn:$email")
-        if (!true) {
+
+        Log.d("validacion",validate().toString())
+        if (!validate()) {
             return
         }
 
@@ -78,7 +80,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
-
     private fun action() {
         startActivity(Intent(this, MainActivity::class.java))
     }
@@ -95,10 +96,31 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
+    private fun validate(): Boolean {
+        var valid = true
 
+
+        val mail = lg_input_mail.text.toString()
+        val password = lg_input_password.text.toString()
+
+        if (mail.isEmpty()) {
+            lg_input_mail!!.error = "Introduce correo"
+            valid = false
+        } else {
+            lg_input_mail!!.error = null
+        }
+        if (password.isEmpty()) {
+            lg_input_password!!.error = "Introduce contraseña"
+            valid = false
+        } else {
+            lg_input_password!!.error = null
+        }
+
+        return valid
+    }
 
     val progressDialog by lazy {
-        ProgressDialog(this)
+        ProgressDialog(this,R.style.AppTheme_Dark_Dialog)
     }
 
     private fun showProgressDialog() {
@@ -112,10 +134,11 @@ class LoginActivity : AppCompatActivity() {
             progressDialog.dismiss()
         }
     }
+
     companion object {
         private val TAG = "LoginActivity"
         private val REQUEST_SIGNUP = 0
-        private const val PWD_KEY = "PWD"
+
     }
 
 

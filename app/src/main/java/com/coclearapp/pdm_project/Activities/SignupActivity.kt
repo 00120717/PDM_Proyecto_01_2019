@@ -1,27 +1,19 @@
 package com.coclearapp.pdm_project.Activities
 
-import android.annotation.SuppressLint
 import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Base64
 import android.util.Log
-import android.view.View
 import android.widget.Toast
-import androidx.annotation.RequiresApi
-import androidx.core.view.isEmpty
+import androidx.appcompat.app.AppCompatActivity
 import com.coclearapp.pdm_project.R
 import com.coclearapp.pdm_project.Security.Encryption
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_signup.*
-import kotlinx.android.synthetic.main.activity_signup.input_name
-import kotlinx.android.synthetic.main.activity_signup.input_password
 import java.io.File
 import java.text.DateFormat
 import java.util.*
@@ -55,7 +47,7 @@ class SignupActivity : AppCompatActivity() {
 
 
         btn_signup.setOnClickListener {
-            createAccount(input_mail.text.toString(),input_password.text.toString())
+            createAccount(input_mail.text.toString(), input_password.text.toString())
         }
 
         link_login.setOnClickListener {
@@ -89,22 +81,22 @@ class SignupActivity : AppCompatActivity() {
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, "Authentication failed.",
-                        Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        baseContext, "Authentication failed.",
+                        Toast.LENGTH_SHORT
+                    ).show()
 
+                    hideProgressDialog()
                 }
 
-                hideProgressDialog()
 
             }
         // [END create_user_with_email]
     }
 
     private fun action() {
-        startActivity(Intent(this,MainActivity::class.java))
+        startActivity(Intent(this, MainActivity::class.java))
     }
-
-
 
 
     private fun saveLastLoggedInTime() {
@@ -115,7 +107,7 @@ class SignupActivity : AppCompatActivity() {
         //Base64 the data
         val currentDateTimeString = DateFormat.getDateTimeInstance().format(Date())
         val map =
-                Encryption().encrypt(currentDateTimeString.toByteArray(Charsets.UTF_8), password)
+            Encryption().encrypt(currentDateTimeString.toByteArray(Charsets.UTF_8), password)
         val valueBase64String = Base64.encodeToString(map["encrypted"], Base64.NO_WRAP)
         val saltBase64String = Base64.encodeToString(map["salt"], Base64.NO_WRAP)
         val ivBase64String = Base64.encodeToString(map["iv"], Base64.NO_WRAP)
@@ -131,11 +123,11 @@ class SignupActivity : AppCompatActivity() {
     }
 
 
-
     private fun validate(): Boolean {
         var valid = true
 
         val name = input_name.text.toString()
+        val mail = input_mail.text.toString()
         val password = input_password.text.toString()
         val reEnterPassword = input_reEnterPassword.text.toString()
 
@@ -145,7 +137,12 @@ class SignupActivity : AppCompatActivity() {
         } else {
             input_name!!.error = null
         }
-
+        if (mail.isEmpty()) {
+            input_mail!!.error = "Introduce correo"
+            valid = false
+        } else {
+            input_mail!!.error = null
+        }
 
         if (password.isEmpty() || password.length < 4 || password.length > 10) {
             input_password!!.error = "Entre 4 y 10 caracteres alfanumericos"
@@ -172,10 +169,11 @@ class SignupActivity : AppCompatActivity() {
     }
 
 
-    val progressDialog by lazy {
-        ProgressDialog(this)
-    }
 
+
+    val progressDialog by lazy {
+        ProgressDialog(this,R.style.AppTheme_Dark_Dialog)
+    }
     private fun showProgressDialog() {
         progressDialog.isIndeterminate = true
         progressDialog.setMessage("Creating Account...")
