@@ -17,7 +17,7 @@
                 android:layout_height="123dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="24dp"
-                android:src="@drawable/logo" />
+                android:src="@drawable/logo_app" />
 
         <!-- Name Label -->
         <com.google.android.material.textfield.TextInputLayout
