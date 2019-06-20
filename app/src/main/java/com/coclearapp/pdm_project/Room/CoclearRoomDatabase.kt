@@ -11,7 +11,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [Patient::class, Rol::class,User::class,UserXPatient::class, Sound::class ], version = 2)
+@Database(entities = [Patient::class, Rol::class,User::class,UserXPatient::class, Sound::class,Exercise::class ], version = 3)
 
 abstract class CoclearRoomDatabase : RoomDatabase() {
 

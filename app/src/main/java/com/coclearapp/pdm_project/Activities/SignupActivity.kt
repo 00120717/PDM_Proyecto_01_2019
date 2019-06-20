@@ -48,12 +48,7 @@ class SignupActivity : AppCompatActivity() {
         )
 
 
-        // Buttons
-        // btn_signup.setOnClickListener(this)
 
-
-        // [START initialize_auth]
-        // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
         dbReference = database.reference.child("User")
@@ -77,14 +72,8 @@ class SignupActivity : AppCompatActivity() {
         if (!validate()) {
             return
         }
-        val progressDialog = ProgressDialog(
-            this@SignupActivity,
-            R.style.AppTheme_Dark_Dialog
-        )
-        progressDialog.isIndeterminate = true
-        progressDialog.setMessage("Creating Account...")
-        progressDialog.show()
 
+        showProgressDialog()
 
         // [START create_user_with_email]
         auth.createUserWithEmailAndPassword(email, password)
@@ -93,7 +82,10 @@ class SignupActivity : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success")
                     val user = auth.currentUser
+                    saveLastLoggedInTime()
                     action()
+
+
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
@@ -101,6 +93,8 @@ class SignupActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT).show()
 
                 }
+
+                hideProgressDialog()
 
             }
         // [END create_user_with_email]
@@ -111,77 +105,7 @@ class SignupActivity : AppCompatActivity() {
     }
 
 
-    @RequiresApi(Build.VERSION_CODES.M)
-    fun signupPressed(view: View) {
-        Log.d(TAG, "Signup")
 
-        if (!validate()) {
-            onSignupFailed()
-            return
-        }
-
-        btn_signup.isEnabled = false
-
-        val progressDialog = ProgressDialog(
-                this@SignupActivity,
-                R.style.AppTheme_Dark_Dialog
-        )
-        progressDialog.isIndeterminate = true
-        progressDialog.setMessage("Creating Account...")
-        progressDialog.show()
-
-        // TODO: Implement your own signup logic here.
-        //TODO:GUARDAR EN BASE
-        saveLastLoggedInTime()
-
-
-        //Start main activity
-        val context = view.context
-        val Intent = Intent(context, MainActivity::class.java)
-        Intent.putExtra(PWD_KEY2, input_password.toString().toCharArray())
-        context.startActivity(Intent)
-
-        Encryption().keystoreTest(input_password.text)
-
-
-        android.os.Handler().postDelayed(
-                {
-                    // On complete call either onSignupSuccess or onSignupFailed
-                    // depending on success
-                    onSignupSuccess()
-                    // onSignupFailed();
-                    progressDialog.dismiss()
-                }, 3000
-        )
-    }
-
-
-    private fun lastLoggedIn(): String? {
-        //Get password
-        val password = CharArray(input_password.length())
-        input_password.text.getChars(0, input_password.length(), password, 0)
-
-        //Retrieve shared prefs data
-        val preferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        val base64Encrypted = preferences.getString("l", "")
-        val base64Salt = preferences.getString("lsalt", "")
-        val base64Iv = preferences.getString("liv", "")
-
-        //Base64 decode
-        val encrypted = Base64.decode(base64Encrypted, Base64.NO_WRAP)
-        val iv = Base64.decode(base64Iv, Base64.NO_WRAP)
-        val salt = Base64.decode(base64Salt, Base64.NO_WRAP)
-
-        //Decrypt
-        val decrypted = Encryption().decrypt(
-                hashMapOf("iv" to iv, "salt" to salt, "encrypted" to encrypted), password)
-
-        var lastLoggedIn: String? = null
-        decrypted?.let {
-            lastLoggedIn = String(it, Charsets.UTF_8)
-        }
-        return lastLoggedIn
-    }
 
     private fun saveLastLoggedInTime() {
         //Get password
@@ -207,17 +131,6 @@ class SignupActivity : AppCompatActivity() {
     }
 
 
-    fun onSignupSuccess() {
-        btn_signup.isEnabled = true
-        setResult(RESULT_OK, null)
-        finish()
-    }
-
-    fun onSignupFailed() {
-        Toast.makeText(baseContext, "Sign up failed", Toast.LENGTH_LONG).show()
-
-        btn_signup.isEnabled = true
-    }
 
     private fun validate(): Boolean {
         var valid = true
@@ -259,9 +172,24 @@ class SignupActivity : AppCompatActivity() {
     }
 
 
+    val progressDialog by lazy {
+        ProgressDialog(this)
+    }
+
+    private fun showProgressDialog() {
+        progressDialog.isIndeterminate = true
+        progressDialog.setMessage("Creating Account...")
+        progressDialog.show()
+    }
+
+    private fun hideProgressDialog() {
+        if (progressDialog.isShowing) {
+            progressDialog.dismiss()
+        }
+    }
+
     companion object {
         private val TAG = "SignupActivity"
-        private const val PWD_KEY2 = "PWD"
     }
 
     object FileConstants {
