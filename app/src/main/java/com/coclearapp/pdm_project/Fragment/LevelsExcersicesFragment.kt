@@ -36,7 +36,7 @@ class LevelsExcersicesFragment: Fragment(){
                         NewPatientActivity::class.java
                     )
                 )*/
-                var fragment = GridExercisesFragment.newInstance()
+                var fragment = GridExercisesFragment.newInstance(1)
 
                 fragmentManager!!
                     .beginTransaction()

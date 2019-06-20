@@ -12,7 +12,7 @@ import com.coclearapp.pdm_project.R
 
 import com.coclearapp.pdm_project.ViewModel.LevelViewModel
 
-class GridExercisesFragment: Fragment(){
+class GridExercisesFragment(level: Int): Fragment(){
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +34,7 @@ class GridExercisesFragment: Fragment(){
 
     companion object {
         @JvmStatic
-        fun newInstance() = GridExercisesFragment()
+        fun newInstance(n: Int) = GridExercisesFragment(n)
 
     }
     private lateinit var model: LevelViewModel

@@ -20,6 +20,7 @@ abstract class CoclearRoomDatabase : RoomDatabase() {
     abstract fun UserDao(): UserDao
     abstract fun UserXPatientDao(): UserXPatientDao
     abstract fun SoundDao(): SoundDao
+    abstract fun ExerciseDao(): ExerciseDao
 
 
 
