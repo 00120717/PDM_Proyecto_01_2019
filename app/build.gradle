@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
-//apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 28
     defaultConfig {
 
         applicationId "com.coclearapp.pdm_project"
-        minSdkVersion 14
+        minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -72,7 +72,10 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
+
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.9.0'
+    implementation 'com.google.firebase:firebase-auth:18.0.0'
+    implementation 'com.google.firebase:firebase-database:18.0.0'
 
 }

@@ -15,4 +15,5 @@
     <string name="password">Contraseña</string>
     <string name="inicia_sesion">Inicia Sesion</string>
     <string name="aun_no_tienes_cuenta">¿Aun no tienes cuenta? Crea una</string>
+    <string name="correo">Correo</string>
 </resources>

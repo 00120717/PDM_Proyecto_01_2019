@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "437425914482",
+    "firebase_url": "https://login-5427e.firebaseio.com",
+    "project_id": "login-5427e",
+    "storage_bucket": "login-5427e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:437425914482:android:480197880444f531",
+        "android_client_info": {
+          "package_name": "com.coclearapp.pdm_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "437425914482-grn4mlu33pfp5t5a8rd7k8s2nkra2uph.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.coclearapp.pdm_project",
+            "certificate_hash": "b0423e08e02034e5b5e6e565012354823baf3a1d"
+          }
+        },
+        {
+          "client_id": "437425914482-1b9kv2j09lk81ablp5krdf5us4fabhoq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRtvmI6cQZQWRaJgzslC30vW-HXY5MMN4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "437425914482-1b9kv2j09lk81ablp5krdf5us4fabhoq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

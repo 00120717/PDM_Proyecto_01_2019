@@ -1,5 +1,6 @@
 package com.coclearapp.pdm_project.Activities
 
+import android.annotation.SuppressLint
 import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
@@ -14,6 +15,10 @@ import androidx.annotation.RequiresApi
 import androidx.core.view.isEmpty
 import com.coclearapp.pdm_project.R
 import com.coclearapp.pdm_project.Security.Encryption
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_signup.*
 import kotlinx.android.synthetic.main.activity_signup.input_name
 import kotlinx.android.synthetic.main.activity_signup.input_password
@@ -25,17 +30,38 @@ import java.util.*
 @Suppress("DEPRECATION")
 class SignupActivity : AppCompatActivity() {
 
+    private lateinit var auth: FirebaseAuth
+    private lateinit var database: FirebaseDatabase
+    private lateinit var dbReference: DatabaseReference
 
     private var workingFile: File? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
 
-        workingFile = File(filesDir.absolutePath + File.separator +
-                FileConstants.DATA_SOURCE_FILE_NAME)
+        workingFile = File(
+            filesDir.absolutePath + File.separator +
+                    FileConstants.DATA_SOURCE_FILE_NAME
+        )
 
+
+        // Buttons
+        // btn_signup.setOnClickListener(this)
+
+
+        // [START initialize_auth]
+        // Initialize Firebase Auth
+        auth = FirebaseAuth.getInstance()
+        database = FirebaseDatabase.getInstance()
+        dbReference = database.reference.child("User")
+
+
+        btn_signup.setOnClickListener {
+            createAccount(input_mail.text.toString(),input_password.text.toString())
+        }
 
         link_login.setOnClickListener {
             // Finish the registration screen and return to the Login activity
@@ -44,6 +70,44 @@ class SignupActivity : AppCompatActivity() {
             finish()
             overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out)
         }
+    }
+
+    private fun createAccount(email: String, password: String) {
+        Log.d(TAG, "createAccount:$email")
+        if (!validate()) {
+            return
+        }
+        val progressDialog = ProgressDialog(
+            this@SignupActivity,
+            R.style.AppTheme_Dark_Dialog
+        )
+        progressDialog.isIndeterminate = true
+        progressDialog.setMessage("Creating Account...")
+        progressDialog.show()
+
+
+        // [START create_user_with_email]
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
+                    Log.d(TAG, "createUserWithEmail:success")
+                    val user = auth.currentUser
+                    action()
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Log.w(TAG, "createUserWithEmail:failure", task.exception)
+                    Toast.makeText(baseContext, "Authentication failed.",
+                        Toast.LENGTH_SHORT).show()
+
+                }
+
+            }
+        // [END create_user_with_email]
+    }
+
+    private fun action() {
+        startActivity(Intent(this,MainActivity::class.java))
     }
 
 
@@ -155,7 +219,7 @@ class SignupActivity : AppCompatActivity() {
         btn_signup.isEnabled = true
     }
 
-    fun validate(): Boolean {
+    private fun validate(): Boolean {
         var valid = true
 
         val name = input_name.text.toString()
@@ -184,7 +248,7 @@ class SignupActivity : AppCompatActivity() {
             input_reEnterPassword!!.error = null
         }
 
-        if (rg_tipo.getCheckedRadioButtonId() == -1) {
+        if (rg_tipo.checkedRadioButtonId == -1) {
             rb_Voluntario!!.error = "Seleccionar algun tipo"
             valid = false
         } else {

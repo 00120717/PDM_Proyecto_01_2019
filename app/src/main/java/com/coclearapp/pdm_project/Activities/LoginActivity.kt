@@ -4,13 +4,14 @@ import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.annotation.VisibleForTesting
 import com.coclearapp.pdm_project.R
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_login.input_name
-import kotlinx.android.synthetic.main.activity_login.input_password
 import kotlinx.android.synthetic.main.activity_signup.*
 import java.io.File
 
@@ -18,21 +19,27 @@ class LoginActivity : AppCompatActivity() {
 
 
     private var workingFile: File? = null
+    private lateinit var auth: FirebaseAuth
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
         //Si ya ingreso se envie automaticamente a la pantalla principal
-        if (updateLoggedInState()) {
+        /* if (updateLoggedInState()) {
 
-            val context = applicationContext
-            val intenttoMain = Intent(context, MainActivity::class.java)
-            intenttoMain.putExtra(PWD_KEY, input_password.toString().toCharArray())
-            context.startActivity(intenttoMain)
+             val context = applicationContext
+             val intenttoMain = Intent(context, MainActivity::class.java)
+             intenttoMain.putExtra(PWD_KEY, input_password.toString().toCharArray())
+             context.startActivity(intenttoMain)
+         }
+ */
+        auth = FirebaseAuth.getInstance()
+
+        btn_login.setOnClickListener {
+            signIn(lg_input_mail.text.toString(),lg_input_password.text.toString())
         }
-
-
 
         link_signup.setOnClickListener {
             // Start the Signup activity
@@ -43,6 +50,82 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    @VisibleForTesting
+    val progressDialog by lazy {
+        ProgressDialog(this)
+    }
+    fun showProgressDialog() {
+        //progressDialog.setMessage(getString(R.string.loading))
+        progressDialog.isIndeterminate = true
+        progressDialog.show()
+    }
+
+    fun hideProgressDialog() {
+        if (progressDialog.isShowing) {
+            progressDialog.dismiss()
+        }
+    }
+
+    private fun signIn(email: String, password: String) {
+        Log.d(TAG, "signIn:$email")
+        if (!true) {
+            return
+        }
+
+        showProgressDialog()
+
+        // [START sign_in_with_email]
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
+                    Log.d(TAG, "signInWithEmail:success")
+                    val user = auth.currentUser
+                    action()
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Log.w(TAG, "signInWithEmail:failure", task.exception)
+                    Toast.makeText(baseContext, "Authentication failed.",
+                        Toast.LENGTH_SHORT).show()
+                    hideProgressDialog()
+                }
+
+
+            }
+        // [END sign_in_with_email]
+    }
+
+    fun loginUser() {
+        val mail: String = lg_input_mail.text.toString()
+        val password: String = lg_input_password.text.toString()
+
+
+        val progressDialog = ProgressDialog(
+            this@LoginActivity,
+            R.style.AppTheme_Dark_Dialog
+        )
+        progressDialog.isIndeterminate = true
+        progressDialog.setMessage("Authenticating...")
+        progressDialog.show()
+
+        if (!TextUtils.isEmpty(mail) && !TextUtils.isEmpty(password)) {
+
+            auth.signInWithEmailAndPassword(mail, password)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        action()
+                    } else {
+                        Toast.makeText(this, "Error en autenticacion", Toast.LENGTH_SHORT)
+                    }
+
+                }
+        }
+
+    }
+
+    private fun action() {
+        startActivity(Intent(this, MainActivity::class.java))
+    }
 
     private fun updateLoggedInState(): Boolean {
         val fileExists = workingFile?.exists() ?: false
@@ -73,7 +156,6 @@ class LoginActivity : AppCompatActivity() {
             val Intent = Intent(context, MainActivity::class.java)
             Intent.putExtra(PWD_KEY, input_password.toString().toCharArray())
             context.startActivity(Intent)
-
 
 
         } else {

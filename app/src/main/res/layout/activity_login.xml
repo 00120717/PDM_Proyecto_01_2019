@@ -1,36 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?><ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:fitsSystemWindows="true">
 
     <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="56dp"
+            android:orientation="vertical"
             android:paddingLeft="24dp"
+            android:paddingTop="56dp"
             android:paddingRight="24dp">
 
-        <ImageView android:src="@drawable/logo"
-                   android:layout_width="108dp"
-                   android:layout_height="108dp"
-                   android:layout_marginBottom="24dp"
-                   android:layout_gravity="center_horizontal" />
+        <ImageView
+                android:layout_width="108dp"
+                android:layout_height="108dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="24dp"
+                android:src="@drawable/logo" />
 
 
-        <!-- Name Label -->
+        <!-- Mail Label -->
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
-
-            <EditText
-                android:id="@+id/input_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/nombre"
-                android:inputType="textPersonName" />
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+
+            <EditText
+                    android:id="@+id/lg_input_mail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/correo"
+                    android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!--  Password Label -->
@@ -39,11 +41,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/input_password"
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:inputType="textPassword"
-                      android:hint="@string/password"/>
+
+            <EditText
+                    android:id="@+id/lg_input_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/password"
+                    android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
@@ -53,16 +57,16 @@
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="24dp"
                 android:padding="12dp"
-                android:onClick="loginPressed"
-                android:text="@string/inicia_sesion"/>
+                android:text="@string/inicia_sesion" />
 
-        <TextView android:id="@+id/link_signup"
-                  android:layout_width="fill_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_marginBottom="24dp"
-                  android:text="@string/aun_no_tienes_cuenta"
-                  android:gravity="center"
-                  android:textSize="16sp"/>
+        <TextView
+                android:id="@+id/link_signup"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:gravity="center"
+                android:text="@string/aun_no_tienes_cuenta"
+                android:textSize="16sp" />
 
     </LinearLayout>
 </ScrollView>
