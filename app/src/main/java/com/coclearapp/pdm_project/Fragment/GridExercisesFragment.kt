@@ -10,10 +10,12 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.coclearapp.pdm_project.Activities.LevelsActivity
+import com.coclearapp.pdm_project.Adapters.LettersAdapter
 import com.coclearapp.pdm_project.Adapters.PatientAdapter
 import com.coclearapp.pdm_project.Models.Patient
 
 import com.coclearapp.pdm_project.R
+import com.coclearapp.pdm_project.Room.Entity.Sound
 
 import com.coclearapp.pdm_project.ViewModel.LevelViewModel
 import kotlinx.android.synthetic.main.activity_patients.*
@@ -35,13 +37,7 @@ class GridExercisesFragment(level: Int): Fragment(){
     }
 
 
-    fun initRecycle(patients : List<Patient>){
-
-    }
-
-
-
-    private fun patientItemClicked(item: Patient){
+    private fun patientItemClicked(item: Sound){
 
         startActivity(Intent(this.context, LevelsActivity::class.java).putExtra("name",item.name))
     }
@@ -55,10 +51,18 @@ class GridExercisesFragment(level: Int): Fragment(){
         var view = inflater.inflate(R.layout.fragment_grid_exercises, container, false)
 
 
+        view.close_button.setOnClickListener {
+            var fragment = LevelsExcersicesFragment.newInstance()
+
+            fragmentManager!!
+                    .beginTransaction()
+                    .replace(R.id.fl_content, fragment)
+                    .commit()
+        }
 
         view.rview.apply {
             layoutManager = LinearLayoutManager(this.context)
-            adapter = PatientAdapter(listOf(Patient(name = "oscar",birthday = "10",level = 1),Patient(name = "marvin",birthday = "10",level = 1)),{ patientitem: Patient-> patientItemClicked(patientitem)})
+            adapter = LettersAdapter(listOf(Sound(name = "a",number = 1, level = 1), Sound(name = "e",number = 2, level = 1),Sound(name = "i",number = 3, level = 1),Sound(name = "o",number = 4, level = 1),Sound(name = "u",number = 5, level = 1)),{ sounditem: Sound-> patientItemClicked(sounditem)})
 
         }
 

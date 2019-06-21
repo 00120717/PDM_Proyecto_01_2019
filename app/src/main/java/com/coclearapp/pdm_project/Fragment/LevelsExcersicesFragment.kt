@@ -43,6 +43,36 @@ class LevelsExcersicesFragment: Fragment(){
                     .replace(R.id.fl_content, fragment)
                     .commit()
             }
+
+            ib_excersises_level2.setOnClickListener {
+                /*   startActivity(
+                       Intent(
+                           it.context,
+                           NewPatientActivity::class.java
+                       )
+                   )*/
+                var fragment = GridExercisesFragment.newInstance(2)
+
+                fragmentManager!!
+                    .beginTransaction()
+                    .replace(R.id.fl_content, fragment)
+                    .commit()
+            }
+
+            ib_excersises_level3.setOnClickListener {
+                /*   startActivity(
+                       Intent(
+                           it.context,
+                           NewPatientActivity::class.java
+                       )
+                   )*/
+                var fragment = GridExercisesFragment.newInstance(3)
+
+                fragmentManager!!
+                    .beginTransaction()
+                    .replace(R.id.fl_content, fragment)
+                    .commit()
+            }
         }
     }
 

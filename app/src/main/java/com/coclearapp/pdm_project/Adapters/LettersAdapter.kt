@@ -27,7 +27,7 @@ class LettersAdapter(var letters:List<Sound>, val clicklistener: (Sound)->Unit):
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(item: Sound, clickListener: (Sound) -> Unit) = with(itemView) {
-            tv_item.text = item.name
+            tv_item.text = item.number.toString()
             this.setOnClickListener { clickListener(item) }
         }
     }
