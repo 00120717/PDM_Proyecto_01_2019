@@ -10,7 +10,7 @@ import com.coclearapp.pdm_project.R
 import kotlinx.android.synthetic.main.activity_levels.*
 
 
-class LevelsActivity: AppCompatActivity(){
+class LevelsActivity : AppCompatActivity() {
 
     lateinit var viewModelLevel: LevelViewModel
 
@@ -37,17 +37,19 @@ class LevelsActivity: AppCompatActivity(){
         var fragment = LevelsSoundsFragment.newInstance()
 
         supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.fl_content, fragment)
-            .commit()
+                .beginTransaction()
+                .setCustomAnimations(R.anim.push_left_in, R.anim.push_left_out, R.anim.push_left_in, R.anim.push_left_out)
+                .replace(R.id.fl_content, fragment)
+                .commit()
     }
 
     fun changeFragmentExercises() {
         var fragment = LevelsExcersicesFragment.newInstance()
 
         supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.fl_content, fragment)
-            .commit()
+                .beginTransaction()
+                .setCustomAnimations(R.anim.push_left_in,R.anim.push_left_out,R.anim.push_left_in,R.anim.push_left_out)
+                .replace(R.id.fl_content, fragment)
+                .commit()
     }
 }

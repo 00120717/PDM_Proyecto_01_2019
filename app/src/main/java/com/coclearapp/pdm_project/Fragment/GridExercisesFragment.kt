@@ -37,7 +37,7 @@ class GridExercisesFragment(level: Int): Fragment(){
     }
 
 
-    private fun patientItemClicked(item: Sound){
+    private fun exerciseItemClicked(item: Sound){
 
         startActivity(Intent(this.context, LevelsActivity::class.java).putExtra("name",item.name))
     }
@@ -56,13 +56,14 @@ class GridExercisesFragment(level: Int): Fragment(){
 
             fragmentManager!!
                     .beginTransaction()
+                    .setCustomAnimations(R.anim.push_left_in,R.anim.push_left_out,R.anim.push_left_in,R.anim.push_left_out)
                     .replace(R.id.fl_content, fragment)
                     .commit()
         }
 
         view.rview.apply {
             layoutManager = LinearLayoutManager(this.context)
-            adapter = LettersAdapter(listOf(Sound(name = "a",number = 1, level = 1), Sound(name = "e",number = 2, level = 1),Sound(name = "i",number = 3, level = 1),Sound(name = "o",number = 4, level = 1),Sound(name = "u",number = 5, level = 1)),{ sounditem: Sound-> patientItemClicked(sounditem)})
+            adapter = LettersAdapter(listOf(Sound(name = "a",number = 1, level = 1), Sound(name = "e",number = 2, level = 1),Sound(name = "i",number = 3, level = 1),Sound(name = "o",number = 4, level = 1),Sound(name = "u",number = 5, level = 1)),{ sounditem: Sound-> exerciseItemClicked(sounditem)})
 
         }
 

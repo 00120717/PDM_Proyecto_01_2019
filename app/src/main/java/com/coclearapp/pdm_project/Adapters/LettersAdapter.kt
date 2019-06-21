@@ -28,6 +28,7 @@ class LettersAdapter(var letters:List<Sound>, val clicklistener: (Sound)->Unit):
 
         fun bind(item: Sound, clickListener: (Sound) -> Unit) = with(itemView) {
             tv_item.text = item.number.toString()
+
             this.setOnClickListener { clickListener(item) }
         }
     }
