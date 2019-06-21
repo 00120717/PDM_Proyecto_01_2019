@@ -4,7 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "Sound")
+@Entity(tableName = "Sounds")
 
 data class Sound(
     @PrimaryKey

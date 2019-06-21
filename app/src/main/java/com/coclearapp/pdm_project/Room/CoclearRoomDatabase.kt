@@ -73,12 +73,9 @@ abstract class CoclearRoomDatabase : RoomDatabase() {
          * If you want to start with more words, just add them.
          */
         suspend fun populateDatabase(patientDao: PatientDao, rolDao: RolDao, userDao: UserDao, userXPatientDao: UserXPatientDao) {
-            // Start the app with a clean database every time.
-            // Not needed if you only populate on creation.
-            patientDao.deleteAllPatient()
-            rolDao.deleteAllRol()
-            userDao.deleteAllUser()
-            userXPatientDao.deleteAllUserXPatientDao()
+
+
+
 
         }
     }
