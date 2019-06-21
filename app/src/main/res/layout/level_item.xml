@@ -11,11 +11,12 @@
             android:id="@+id/tv_item"
             android:layout_width="match_parent"
             android:layout_height="@dimen/size_container_letter"
-            android:text="A"
+            android:text="@string/na_string"
             android:textColor="@color/colorAccent"
             android:textSize="@dimen/letter_size"
             android:gravity="center"
             android:background="@color/background_item"
+            android:fontFamily="@font/atiqua_in_grid_balloons"
     />
 
 

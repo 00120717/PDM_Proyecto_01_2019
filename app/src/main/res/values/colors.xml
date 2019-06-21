@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="transparent">#12554E55</color>
+    <color name="transparent">#ADC0B3C0</color>
 
     <color name="colorPrimary">#64dd17</color>
     <color name="colorPrimaryDark">#1faa00</color>
@@ -23,6 +23,9 @@
     <color name="white">#FFFFFF</color>
     <color name="background_item">#ff6f00</color>
 
-
+    <!-- Option colors. -->
+    <color name="color_opt_a">#40c4ff</color>
+    <color name="color_opt_b">#00e676</color>
+    <color name="color_opt_c">#7FFFD4</color>
 
 </resources>

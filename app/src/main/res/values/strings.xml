@@ -16,4 +16,5 @@
     <string name="inicia_sesion">Inicia Sesion</string>
     <string name="aun_no_tienes_cuenta">¿Aun no tienes cuenta? Crea una</string>
     <string name="correo">Correo</string>
+    <string name="na_string">NA</string>
 </resources>
