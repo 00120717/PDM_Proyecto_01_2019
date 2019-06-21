@@ -10,6 +10,8 @@ data class Sound(
     @PrimaryKey
     @ColumnInfo(name = "name")
     val name: String,
+    @ColumnInfo(name = "sound")
+    val sound: Int,
     @ColumnInfo(name = "number")
     val number: Int,
     @ColumnInfo(name = "level")
