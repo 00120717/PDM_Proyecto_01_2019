@@ -63,7 +63,7 @@ class GridExercisesFragment(level: Int): Fragment(){
 
         view.rview.apply {
             layoutManager = LinearLayoutManager(this.context)
-            adapter = LettersAdapter(listOf(Sound(name = "a",number = 1, level = 1), Sound(name = "e",number = 2, level = 1),Sound(name = "i",number = 3, level = 1),Sound(name = "o",number = 4, level = 1),Sound(name = "u",number = 5, level = 1)),{ sounditem: Sound-> exerciseItemClicked(sounditem)})
+            adapter = LettersAdapter(emptyList(),{ sounditem: Sound-> exerciseItemClicked(sounditem)})
 
         }
 
