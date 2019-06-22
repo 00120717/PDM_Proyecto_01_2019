@@ -23,27 +23,24 @@ import java.util.*
 class SignupActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
-    private lateinit var database: FirebaseDatabase
-    private lateinit var dbReference: DatabaseReference
-
+    private var mDatabase: DatabaseReference? = null
     private var workingFile: File? = null
-
+    private var tipoUser = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
+        //Instancias de Firebase
+        mDatabase = FirebaseDatabase.getInstance().reference
+        auth = FirebaseAuth.getInstance()
 
+
+        //Archivo que guarda las credenciales
         workingFile = File(
             filesDir.absolutePath + File.separator +
                     FileConstants.DATA_SOURCE_FILE_NAME
         )
-
-
-
-        auth = FirebaseAuth.getInstance()
-        database = FirebaseDatabase.getInstance()
-        dbReference = database.reference.child("User")
 
 
         btn_signup.setOnClickListener {
@@ -75,6 +72,14 @@ class SignupActivity : AppCompatActivity() {
                     Log.d(TAG, "createUserWithEmail:success")
                     val user = auth.currentUser
                     saveLastLoggedInTime()
+
+                    val childUpdates = HashMap<String, Any>()
+
+                    //Guarda datos en Firebase
+                    childUpdates.put("/User/" + user!!.uid + "/Name", input_name.text.toString())
+                    childUpdates.put("/User/" + user!!.uid + "/Tipo", tipoUser)
+
+                    mDatabase!!.updateChildren(childUpdates)
                     action()
 
 
@@ -82,7 +87,7 @@ class SignupActivity : AppCompatActivity() {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
                     Toast.makeText(
-                        baseContext, "Authentication failed.",
+                        baseContext, "Sign up failed.",
                         Toast.LENGTH_SHORT
                     ).show()
 
@@ -144,8 +149,8 @@ class SignupActivity : AppCompatActivity() {
             input_mail!!.error = null
         }
 
-        if (password.isEmpty() || password.length < 4 || password.length > 10) {
-            input_password!!.error = "Entre 4 y 10 caracteres alfanumericos"
+        if (password.isEmpty() || password.length < 6) {
+            input_password!!.error = "Mayor que 6 caracteres alfanumericos"
             valid = false
         } else {
             input_password!!.error = null
@@ -162,6 +167,13 @@ class SignupActivity : AppCompatActivity() {
             rb_Voluntario!!.error = "Seleccionar algun tipo"
             valid = false
         } else {
+            when (rg_tipo.checkedRadioButtonId) {
+                rb_Voluntario.id -> tipoUser = 1
+                rb_Terapeuta.id -> tipoUser = 2
+                rb_Padres.id -> tipoUser = 3
+
+            }
+
             rb_Voluntario!!.error = null
         }
 
@@ -169,11 +181,10 @@ class SignupActivity : AppCompatActivity() {
     }
 
 
-
-
     val progressDialog by lazy {
-        ProgressDialog(this,R.style.AppTheme_Dark_Dialog)
+        ProgressDialog(this, R.style.AppTheme_Dark_Dialog)
     }
+
     private fun showProgressDialog() {
         progressDialog.isIndeterminate = true
         progressDialog.setMessage("Creating Account...")
