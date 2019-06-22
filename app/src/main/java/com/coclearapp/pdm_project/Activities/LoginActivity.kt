@@ -1,7 +1,11 @@
+@file:Suppress("DEPRECATION")
+
 package com.coclearapp.pdm_project.Activities
 
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -24,15 +28,17 @@ class LoginActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        //updateLoggedInState()
+        //Revisa si hay conexion a internet
+        checkstatusInternet()
 
+        //Valida si ya se ingreso anteriormente
+        checkLoginState()
+
+        Log.d("loginstatus",updateLoggedInState().toString())
 
         btn_login.setOnClickListener {
 
             signIn(lg_input_mail.text.toString(), lg_input_password.text.toString())
-
-            //    Toast.makeText(this, "Falta Credenciales", Toast.LENGTH_SHORT).show()
-
 
         }
 
@@ -49,7 +55,7 @@ class LoginActivity : AppCompatActivity() {
     private fun signIn(email: String, password: String) {
         Log.d(TAG, "signIn:$email")
 
-        Log.d("validacion",validate().toString())
+        Log.d("validacion", validate().toString())
         if (!validate()) {
             return
         }
@@ -63,6 +69,7 @@ class LoginActivity : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithEmail:success")
                     val user = auth.currentUser
+
                     action()
                 } else {
                     // If sign in fails, display a message to the user.
@@ -120,7 +127,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     val progressDialog by lazy {
-        ProgressDialog(this,R.style.AppTheme_Dark_Dialog)
+        ProgressDialog(this, R.style.AppTheme_Dark_Dialog)
     }
 
     private fun showProgressDialog() {
@@ -133,6 +140,24 @@ class LoginActivity : AppCompatActivity() {
         if (progressDialog.isShowing) {
             progressDialog.dismiss()
         }
+    }
+
+    private fun checkLoginState() {
+        if (updateLoggedInState()) {
+            action()
+        }
+    }
+
+    private fun checkstatusInternet() {
+        if (!isNetworkAvailable()) {
+            Toast.makeText(this, "No hay conexion a internet", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun isNetworkAvailable(): Boolean {
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetworkInfo = connectivityManager.activeNetworkInfo
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected
     }
 
     companion object {
