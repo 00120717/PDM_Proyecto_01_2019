@@ -1,7 +1,7 @@
 package com.coclearapp.pdm_project.Models
 
 data class Question(
-    var numbre:Int,
+    var number:Int,
     var sound:String,
     var level:Int,
     var answer:String,

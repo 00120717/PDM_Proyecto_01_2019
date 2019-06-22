@@ -16,7 +16,7 @@
             android:textSize="@dimen/letter_size"
             android:gravity="center"
             android:background="@color/background_item"
-            android:fontFamily="@font/atiqua_in_grid_balloons"
+            android:fontFamily="@font/antiqua_in_grid"
     />
 
 

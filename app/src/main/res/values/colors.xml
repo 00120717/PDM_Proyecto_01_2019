@@ -28,4 +28,5 @@
     <color name="color_opt_b">#00e676</color>
     <color name="color_opt_c">#7FFFD4</color>
 
+    <color name="cirular_textview_background">#64dd17</color>
 </resources>
