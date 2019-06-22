@@ -24,6 +24,11 @@ class LettersAdapter(var letters:List<Sound>, val clicklistener: (Sound)->Unit):
         holder.bind(letters[position], clicklistener)
     }
 
+    fun dataChange(lista_sounds : List<Sound>){
+        letters = lista_sounds
+        notifyDataSetChanged()
+    }
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(item: Sound, clickListener: (Sound) -> Unit) = with(itemView) {

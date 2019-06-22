@@ -24,7 +24,7 @@ class LevelsSoundsFragment : Fragment() {
             }
 
             ib_sounds_level2.setOnClickListener {
-                var fragment = SoundFragment.newInstance(1)
+                var fragment = SoundFragment.newInstance(2)
 
                 fragmentManager!!
                         .beginTransaction()
@@ -34,7 +34,7 @@ class LevelsSoundsFragment : Fragment() {
             }
 
             ib_sounds_level3.setOnClickListener {
-                var fragment = SoundFragment.newInstance(1)
+                var fragment = SoundFragment.newInstance(3)
 
                 fragmentManager!!
                         .beginTransaction()

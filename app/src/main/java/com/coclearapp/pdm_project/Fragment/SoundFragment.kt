@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,11 +16,15 @@ import com.coclearapp.pdm_project.Adapters.PatientAdapter
 import com.coclearapp.pdm_project.R
 import com.coclearapp.pdm_project.Room.Entity.Sound
 import com.coclearapp.pdm_project.ViewModel.LevelViewModel
+import com.coclearapp.pdm_project.ViewModel.SoundViewModel
 import kotlinx.android.synthetic.main.fragment_grid_exercises.view.*
 
-class SoundFragment(level: Int): Fragment(){
-    private lateinit var viewAdapter: PatientAdapter
+class SoundFragment(private val level: Int): Fragment(){
+    private lateinit var viewAdapter: LettersAdapter
     private lateinit var viewManager: RecyclerView.LayoutManager
+    private lateinit var soundViewModel: SoundViewModel
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +46,13 @@ class SoundFragment(level: Int): Fragment(){
             savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        viewAdapter = LettersAdapter(emptyList(),{ sounditem: Sound -> soundItemClicked(sounditem)})
+
+        soundViewModel =ViewModelProviders.of(this).get(SoundViewModel::class.java)
+
+        soundViewModel.levelSounds(level).observe(this, Observer {
+            viewAdapter.dataChange(it)
+        })
 
         var view = inflater.inflate(R.layout.fragment_grid_exercises, container, false)
 
@@ -59,7 +71,7 @@ class SoundFragment(level: Int): Fragment(){
 
         view.rview.apply {
             layoutManager = LinearLayoutManager(this.context)
-            adapter = LettersAdapter(listOf(Sound(name = "ma",sound = R.raw.ma,number = 1, level = 1), Sound(name = "me",sound = R.raw.me,number = 2, level = 1), Sound(name = "mi",sound = R.raw.mi,number = 3, level = 1), Sound(name = "mo",sound = R.raw.mo,number = 4, level = 1), Sound(name = "mu",sound = R.raw.mu,number = 5, level = 1)),{ sounditem: Sound -> soundItemClicked(sounditem)})
+            adapter = viewAdapter
 
         }
 
