@@ -32,7 +32,7 @@ class LettersAdapter(var letters:List<Sound>, val clicklistener: (Sound)->Unit):
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(item: Sound, clickListener: (Sound) -> Unit) = with(itemView) {
-            tv_item.text = item.name.capitalize()
+            tv_item.text = item.name.toUpperCase()
 
             this.setOnClickListener { clickListener(item) }
         }

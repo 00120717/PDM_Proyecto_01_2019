@@ -1,17 +1,14 @@
 package com.coclearapp.pdm_project.Fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import com.coclearapp.pdm_project.Activities.NewPatientActivity
 import com.coclearapp.pdm_project.ViewModel.LevelViewModel
 import com.coclearapp.pdm_project.R
 import kotlinx.android.synthetic.main.fragment_levels_excersices.view.*
-import kotlinx.android.synthetic.main.fragment_levels_sounds.*
 
 class LevelsExcersicesFragment : Fragment() {
 
@@ -31,7 +28,7 @@ class LevelsExcersicesFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_levels_excersices, container, false).apply {
             ib_excersises_level1.setOnClickListener {
 
-                var fragment = GridExercisesFragment.newInstance(1)
+                var fragment = RVExercisesFragment.newInstance(1)
 
                 fragmentManager!!
                         .beginTransaction()
@@ -42,7 +39,7 @@ class LevelsExcersicesFragment : Fragment() {
 
             ib_excersises_level2.setOnClickListener {
 
-                var fragment = GridExercisesFragment.newInstance(2)
+                var fragment = RVExercisesFragment.newInstance(2)
 
                 fragmentManager!!
                         .beginTransaction()
@@ -53,7 +50,7 @@ class LevelsExcersicesFragment : Fragment() {
 
             ib_excersises_level3.setOnClickListener {
 
-                var fragment = GridExercisesFragment.newInstance(3)
+                var fragment = RVExercisesFragment.newInstance(3)
 
                 fragmentManager!!
                         .beginTransaction()

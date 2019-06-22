@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 
 @Database(
     entities = [Patient::class, Rol::class, User::class, UserXPatient::class, Sound::class, Exercise::class],
-    version = 3
+    version = 4
 )
 
 abstract class CoclearRoomDatabase : RoomDatabase() {
@@ -70,7 +70,8 @@ abstract class CoclearRoomDatabase : RoomDatabase() {
                             database.RolDao(),
                             database.UserDao(),
                             database.UserXPatientDao(),
-                            database.SoundDao()
+                            database.SoundDao(),
+                            database.ExerciseDao()
                         )
                     }
                 }
@@ -86,7 +87,9 @@ abstract class CoclearRoomDatabase : RoomDatabase() {
             rolDao: RolDao,
             userDao: UserDao,
             userXPatientDao: UserXPatientDao,
-            soundDao: SoundDao
+            soundDao: SoundDao,
+            exerciseDao: ExerciseDao
+
         ) {
 
 
@@ -120,6 +123,24 @@ abstract class CoclearRoomDatabase : RoomDatabase() {
             soundDao.insert(ema)
             var mimo = Sound(name = "mimo",sound = R.raw.mimo,number = 15, level = 3)
             soundDao.insert(mimo)
+
+            /*---------------------------------------------------------------------------*/
+
+            var q1 = Exercise(Number = 1, Sound = R.raw.e,Level = 1,Answer = "e",Optiona = "e",Optionb = "i",Optionc = "o")
+            exerciseDao.insert(q1)
+            var q2 = Exercise(Number = 2, Sound = R.raw.o,Level = 1,Answer = "o",Optiona = "a",Optionb = "o",Optionc = "u")
+            exerciseDao.insert(q2)
+
+            var q6 = Exercise(Number = 1, Sound = R.raw.mi,Level = 2,Answer = "mi",Optiona = "mo",Optionb = "ma",Optionc = "mi")
+            exerciseDao.insert(q6)
+            var q7 = Exercise(Number = 2, Sound = R.raw.ma,Level = 2,Answer = "ma",Optiona = "ma",Optionb = "mo",Optionc = "mu")
+            exerciseDao.insert(q7)
+
+            var q11 = Exercise(Number = 1, Sound = R.raw.mimo,Level = 3,Answer = "mimo",Optiona = "mimo",Optionb = "eme",Optionc = "amo")
+            exerciseDao.insert(q11)
+            var q12 = Exercise(Number = 2, Sound = R.raw.ama,Level = 3,Answer = "ama",Optiona = "eme",Optionb = "ama",Optionc = "amo")
+            exerciseDao.insert(q12)
+
 
         }
     }
