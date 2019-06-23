@@ -34,6 +34,7 @@ class NewPatientActivity : AppCompatActivity() {
 
         Submit_Patient.setOnClickListener {
             savePatient()
+
         }
     }
 
@@ -66,6 +67,8 @@ class NewPatientActivity : AppCompatActivity() {
 
         //Pasa a la actividad de pacientes
         action()
+
+        finish()
 
     }
     val progressDialog by lazy {

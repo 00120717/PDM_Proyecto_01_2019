@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
                     LoginActivity::class.java
                 )
             )
+            finish()
         }
 
         add_patient.setOnClickListener{
