@@ -1,30 +1,29 @@
 package com.coclearapp.pdm_project.Activities
 
 import android.app.ProgressDialog
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Base64
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.ViewModelProviders
 import com.coclearapp.pdm_project.R
-import com.coclearapp.pdm_project.Security.Encryption
+import com.coclearapp.pdm_project.Room.Entity.User
+import com.coclearapp.pdm_project.ViewModel.UserViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_signup.*
-import java.io.File
-import java.text.DateFormat
 import java.util.*
+import androidx.lifecycle.Observer
 
 
 @Suppress("DEPRECATION")
-class SignupActivity : AppCompatActivity() {
+class SignupActivity : AppCompatActivity(), LifecycleOwner {
 
     private lateinit var auth: FirebaseAuth
     private var mDatabase: DatabaseReference? = null
-    private var workingFile: File? = null
     private var tipoUser = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,12 +34,6 @@ class SignupActivity : AppCompatActivity() {
         mDatabase = FirebaseDatabase.getInstance().reference
         auth = FirebaseAuth.getInstance()
 
-
-        //Archivo que guarda las credenciales
-        workingFile = File(
-            filesDir.absolutePath + File.separator +
-                    FileConstants.DATA_SOURCE_FILE_NAME
-        )
 
 
         btn_signup.setOnClickListener {
@@ -71,16 +64,21 @@ class SignupActivity : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success")
                     val user = auth.currentUser
-                    saveLastLoggedInTime()
-
                     val childUpdates = HashMap<String, Any>()
 
                     //Guarda datos en Firebase
                     childUpdates.put("/User/" + user!!.uid + "/Name", input_name.text.toString())
                     childUpdates.put("/User/" + user!!.uid + "/Tipo", tipoUser)
 
+                    //Guarda datos en BD
+                    val viewModel = ViewModelProviders.of(this).get(UserViewModel::class.java)
+                    viewModel.insertUser(User(user.uid,input_name.text.toString(), tipoUser, ""))
+
+
                     mDatabase!!.updateChildren(childUpdates)
                     action()
+
+
 
 
                 } else {
@@ -102,31 +100,6 @@ class SignupActivity : AppCompatActivity() {
     private fun action() {
         startActivity(Intent(this, MainActivity::class.java))
     }
-
-
-    private fun saveLastLoggedInTime() {
-        //Get password
-        val password = CharArray(input_password.length())
-        input_password.text.getChars(0, input_password.length(), password, 0)
-
-        //Base64 the data
-        val currentDateTimeString = DateFormat.getDateTimeInstance().format(Date())
-        val map =
-            Encryption().encrypt(currentDateTimeString.toByteArray(Charsets.UTF_8), password)
-        val valueBase64String = Base64.encodeToString(map["encrypted"], Base64.NO_WRAP)
-        val saltBase64String = Base64.encodeToString(map["salt"], Base64.NO_WRAP)
-        val ivBase64String = Base64.encodeToString(map["iv"], Base64.NO_WRAP)
-
-        //Save to shared prefs
-        val editor = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE).edit()
-        editor.putString("l", valueBase64String)
-        editor.putString("lsalt", saltBase64String)
-        editor.putString("liv", ivBase64String)
-        editor.apply()
-
-
-    }
-
 
     private fun validate(): Boolean {
         var valid = true
@@ -201,8 +174,4 @@ class SignupActivity : AppCompatActivity() {
         private val TAG = "SignupActivity"
     }
 
-    object FileConstants {
-        const val DATA_SOURCE_FILE_NAME = "coclear.dat"
-
-    }
 }

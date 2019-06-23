@@ -10,7 +10,7 @@ import com.coclearapp.pdm_project.Room.Entity.User
 interface UserDao {
 
     @Query("SELECT * from User ORDER BY User.Name_User ASC")
-    fun getAllUser(): LiveData<List<User>>
+    fun getAllUser(): LiveData<User>
 
 
 

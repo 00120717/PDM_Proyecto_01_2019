@@ -3,6 +3,7 @@ package com.coclearapp.pdm_project.Room.Dao
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.coclearapp.pdm_project.Room.Entity.Rol
 
@@ -17,7 +18,7 @@ interface RolDao {
     @Query("SELECT * from Rol WHERE Rol.id==:id ")
     fun getByid(id:Long): LiveData<Rol>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertRol(rol: Rol)
 
     @Query("DELETE FROM Rol")

@@ -18,8 +18,9 @@ interface SoundDao {
     fun getAllSounds(): LiveData<List<Sound>>
 
 
-    @Query("SELECT * FROM sounds WHERE level = :level")
+    @Query("SELECT * FROM Sounds WHERE level = :level")
     fun getSoundsByLevel(level: Int): LiveData<List<Sound>>
 
-
+    @Query("DELETE FROM Sounds")
+    fun deleteAllSound()
 }

@@ -13,7 +13,7 @@ interface ExerciseDao {
     @Query("SELECT * from Exercises WHERE Level==:level ")
     fun getExersicesByLevel(level: Int): LiveData<List<Exercise>>
 
-    @Query("SELECT * FROM exercises WHERE id_question = :id")
+    @Query("SELECT * FROM Exercises WHERE id_question = :id")
     fun getQuestionById(id: Long): LiveData<Exercise>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -23,4 +23,6 @@ interface ExerciseDao {
     @Query("SELECT * FROM Exercises WHERE Level = :level AND Number = :number")
     fun getQuestionByLevelAndNumber(level: Int, number: Int): LiveData<Exercise>
 
+    @Query("DELETE FROM Exercises")
+    fun deleteAllExercise()
 }

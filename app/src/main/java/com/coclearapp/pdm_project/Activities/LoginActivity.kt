@@ -10,21 +10,22 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProviders
 import com.coclearapp.pdm_project.R
+import com.coclearapp.pdm_project.Repository.UserRepository
+import com.coclearapp.pdm_project.Room.Entity.User
+import com.coclearapp.pdm_project.ViewModel.UserViewModel
 
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 import java.io.File
 import com.google.firebase.auth.FirebaseUser
-
-
-
+import kotlinx.android.synthetic.main.activity_signup.*
 
 
 class LoginActivity : AppCompatActivity() {
 
 
-    private var workingFile: File? = null
     private lateinit var auth: FirebaseAuth
 
 
@@ -50,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
             println("ha fallado***********************************************************+")
         }
 
-        Log.d("loginstatus",updateLoggedInState().toString())
+
 
         btn_login.setOnClickListener {
 
@@ -86,6 +87,8 @@ class LoginActivity : AppCompatActivity() {
                     Log.d(TAG, "signInWithEmail:success")
                     val user = auth.currentUser
 
+
+
                     action()
                 } else {
                     // If sign in fails, display a message to the user.
@@ -107,14 +110,9 @@ class LoginActivity : AppCompatActivity() {
         startActivity(Intent(this, MainActivity::class.java))
     }
 
-    private fun updateLoggedInState(): Boolean {
-        val fileExists = workingFile?.exists() ?: false
-        return fileExists
-    }
-
 
     override fun onBackPressed() {
-        // Disable going back to the MainActivity
+        // Disable going back
         moveTaskToBack(true)
     }
 
@@ -155,12 +153,6 @@ class LoginActivity : AppCompatActivity() {
     private fun hideProgressDialog() {
         if (progressDialog.isShowing) {
             progressDialog.dismiss()
-        }
-    }
-
-    private fun checkLoginState() {
-        if (updateLoggedInState()) {
-            action()
         }
     }
 
