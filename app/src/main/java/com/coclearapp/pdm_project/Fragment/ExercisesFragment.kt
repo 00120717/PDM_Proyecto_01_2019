@@ -28,7 +28,7 @@ class ExercisesFragment(private val exercise: Exercise) : Fragment() {
         var view = inflater.inflate(R.layout.fragment_questions_container, container, false).apply {
 
 
-            tv_question.text = exercise.Number.toString()
+            tv_question.text = "${tv_question.text} ${exercise.Number.toString()}"
             op_a.text = exercise.Optiona
             op_b.text = exercise.Optionb
             op_c.text = exercise.Optionc
