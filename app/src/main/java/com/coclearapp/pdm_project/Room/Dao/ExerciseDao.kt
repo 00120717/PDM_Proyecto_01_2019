@@ -19,4 +19,8 @@ interface ExerciseDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(table : Exercise)
 
+
+    @Query("SELECT * FROM Exercises WHERE Level = :level AND Number = :number")
+    fun getQuestionByLevelAndNumber(level: Int, number: Int): LiveData<Exercise>
+
 }

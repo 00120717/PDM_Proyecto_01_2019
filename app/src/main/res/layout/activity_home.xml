@@ -7,6 +7,15 @@
               android:padding="16dp"
 >
 
+
+    <ImageButton
+            android:layout_gravity="end"
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_power_settings_new_black_24dp"
+    />
+
     <ImageButton
             android:id="@+id/add_patient"
             android:layout_width="match_parent"

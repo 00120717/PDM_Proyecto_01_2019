@@ -11,9 +11,15 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.coclearapp.pdm_project.R
+
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 import java.io.File
+import com.google.firebase.auth.FirebaseUser
+
+
+
+
 
 class LoginActivity : AppCompatActivity() {
 
@@ -32,7 +38,17 @@ class LoginActivity : AppCompatActivity() {
         checkstatusInternet()
 
         //Valida si ya se ingreso anteriormente
-        checkLoginState()
+
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            // User is signed in
+            val i = Intent(this@LoginActivity, MainActivity::class.java)
+            i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(i)
+        } else {
+            // User is signed out
+            println("ha fallado***********************************************************+")
+        }
 
         Log.d("loginstatus",updateLoggedInState().toString())
 
