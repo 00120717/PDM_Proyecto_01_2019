@@ -14,7 +14,7 @@
             android:layout_width="448dp"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@drawable/principiante"
+            android:background="@drawable/principiante2"
             android:gravity="center"
     />
 
@@ -23,7 +23,7 @@
             android:layout_width="456dp"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@drawable/intermedio"
+            android:background="@drawable/intermedio2"
     />
 
 
@@ -32,6 +32,6 @@
             android:layout_width="462dp"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@drawable/avanzado"
+            android:background="@drawable/avanzado2"
     />
 </LinearLayout>
