@@ -12,12 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="Pregunta"
+        android:text="1"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textSize="@dimen/size_container_letter"
         android:gravity="center"
         android:background="@color/transparent"
-        android:fontFamily="@font/all_your_font_are_belong_to_us"
+        android:fontFamily="@font/agent_red"
         android:backgroundTint="@color/aluminum"
 
 />
