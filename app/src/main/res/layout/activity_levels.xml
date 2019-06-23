@@ -6,17 +6,25 @@
     android:orientation="vertical"
     tools:context=".Activities.LevelsActivity">
 
-    <TextView
-        android:id="@+id/patient_name_levels"
-        android:layout_width="match_parent"
-        android:text="@string/nombre"
-        android:gravity="end"
-        android:background="@color/white"
-        android:fontFamily="@font/roboto_medium"
-        android:textColor="#e64a19"
-        android:textSize="@dimen/high_size"
-        android:layout_height="wrap_content"
-        android:paddingRight="10dp"/>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+    >
+        <TextView
+                android:id="@+id/patient_name_levels"
+                android:layout_width="173dp"
+                android:layout_height="35dp"
+                android:text="@string/nombre"
+                android:gravity="center"
+                android:background="@drawable/circular_tv_name"
+                android:fontFamily="@font/roboto_medium"
+                android:textColor="@color/accent"
+                android:textSize="@dimen/high_size"
+        />
+    </LinearLayout>
+
+
 
     <FrameLayout
         android:id="@+id/fl_content"
