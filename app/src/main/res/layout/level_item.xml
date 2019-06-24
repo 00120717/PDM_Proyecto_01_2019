@@ -15,9 +15,13 @@
             android:textColor="@color/colorAccent"
             android:textSize="@dimen/letter_size"
             android:gravity="center"
-            android:background="@color/background_item"
+            android:background="@drawable/tv_border_radius"
             android:fontFamily="@font/antiqua_in_grid"
-    />
+
+            android:shadowColor="@color/transparent_0"
+            android:shadowRadius="10"
+            android:shadowDx="5"
+            android:shadowDy="5"/>
 
 
 </LinearLayout>
