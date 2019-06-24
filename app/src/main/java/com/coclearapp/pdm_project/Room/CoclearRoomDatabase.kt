@@ -138,6 +138,8 @@ abstract class CoclearRoomDatabase : RoomDatabase() {
             /*---------------------------------------------------------------------------*/
 
             //llenado de exercise
+
+            //nivel 1
             var q1 = Exercise(
                 Number = 1,
                 Sound = R.raw.e,
@@ -158,7 +160,38 @@ abstract class CoclearRoomDatabase : RoomDatabase() {
                 Optionc = "u"
             )
             exerciseDao.insert(q2)
+            var q3 = Exercise(
+                Number = 3,
+                Sound = R.raw.a,
+                Level = 1,
+                Answer = "a",
+                Optiona = "a",
+                Optionb = "o",
+                Optionc = "i"
+            )
+            exerciseDao.insert(q3)
+            var q4 = Exercise(
+                Number = 4,
+                Sound = R.raw.u,
+                Level = 1,
+                Answer = "u",
+                Optiona = "e",
+                Optionb = "o",
+                Optionc = "u"
+            )
+            exerciseDao.insert(q4)
+            var q5 = Exercise(
+                Number = 5,
+                Sound = R.raw.i,
+                Level = 1,
+                Answer = "i",
+                Optiona = "a",
+                Optionb = "i",
+                Optionc = "u"
+            )
+            exerciseDao.insert(q5)
 
+            //nivel 2
             var q6 = Exercise(
                 Number = 1,
                 Sound = R.raw.mi,
@@ -179,7 +212,38 @@ abstract class CoclearRoomDatabase : RoomDatabase() {
                 Optionc = "mu"
             )
             exerciseDao.insert(q7)
+            var q8 = Exercise(
+                Number = 3,
+                Sound = R.raw.mu,
+                Level = 2,
+                Answer = "mu",
+                Optiona = "ma",
+                Optionb = "mo",
+                Optionc = "mu"
+            )
+            exerciseDao.insert(q8)
+            var q9 = Exercise(
+                Number = 4,
+                Sound = R.raw.me,
+                Level = 2,
+                Answer = "me",
+                Optiona = "mi",
+                Optionb = "mo",
+                Optionc = "me"
+            )
+            exerciseDao.insert(q9)
+            var q10 = Exercise(
+                Number = 5,
+                Sound = R.raw.mo,
+                Level = 2,
+                Answer = "mo",
+                Optiona = "ma",
+                Optionb = "mo",
+                Optionc = "mi"
+            )
+            exerciseDao.insert(q10)
 
+            //nivel 3
             var q11 = Exercise(
                 Number = 1,
                 Sound = R.raw.mimo,
@@ -200,6 +264,37 @@ abstract class CoclearRoomDatabase : RoomDatabase() {
                 Optionc = "amo"
             )
             exerciseDao.insert(q12)
+            var q13 = Exercise(
+                Number = 3,
+                Sound = R.raw.ema,
+                Level = 3,
+                Answer = "ema",
+                Optiona = "eme",
+                Optionb = "ema",
+                Optionc = "amo"
+            )
+            exerciseDao.insert(q13)
+            var q14 = Exercise(
+                Number = 4,
+                Sound = R.raw.eme,
+                Level = 3,
+                Answer = "eme",
+                Optiona = "eme",
+                Optionb = "ama",
+                Optionc = "amo"
+            )
+            exerciseDao.insert(q14)
+            var q15 = Exercise(
+                Number = 5,
+                Sound = R.raw.amo,
+                Level = 3,
+                Answer = "amo",
+                Optiona = "eme",
+                Optionb = "ema",
+                Optionc = "amo"
+            )
+            exerciseDao.insert(q15)
+
 
 
         }
