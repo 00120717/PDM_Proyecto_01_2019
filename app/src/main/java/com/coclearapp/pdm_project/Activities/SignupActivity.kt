@@ -20,7 +20,7 @@ import androidx.lifecycle.Observer
 
 
 @Suppress("DEPRECATION")
-class SignupActivity : AppCompatActivity(), LifecycleOwner {
+class SignupActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private var mDatabase: DatabaseReference? = null
