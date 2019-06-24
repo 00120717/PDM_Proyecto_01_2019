@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/ic_person_add_black_24dp"
+            android:src="@drawable/ic_icons8_contacto"
             android:background="@drawable/circular_textview"
             android:layout_marginTop="@dimen/small_size"
     />
@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/ic_people_black_24dp"
+            android:src="@drawable/ic_icons8_allpatients"
             android:background="@drawable/circular_tv"
             android:layout_marginTop="@dimen/small_size"
     />

@@ -6,20 +6,35 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_question"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/transparent"
-        android:backgroundTint="@color/aluminum"
-        android:fontFamily="@font/agent_red"
-        android:gravity="center"
-        android:text="@string/pregunta_string"
-        android:textColor="@color/common_google_signin_btn_text_dark_focused"
-        android:textSize="@dimen/high_size"
 
-        />
+        android:background="@color/transparent">
+
+        <ImageButton
+            android:layout_width="@dimen/extra_size"
+            android:layout_height="@dimen/extra_size"
+            android:background="@drawable/ic_icons8_eliminar" />
+
+        <TextView
+            android:id="@+id/tv_question"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+
+            android:backgroundTint="@color/aluminum"
+            android:fontFamily="@font/agent_red"
+            android:gravity="center"
+            android:text="@string/pregunta_string"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:textSize="@dimen/high_size"
+
+            />
+
+    </LinearLayout>
+
 
     <ImageButton
         android:id="@+id/im_sound"
@@ -34,11 +49,11 @@
         android:id="@+id/tv_correct"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/all_your_font_are_belong_to_us"
+        android:gravity="center"
         android:text="@string/correcto_string"
         android:textSize="@dimen/extra_size"
-        android:gravity="center"
-        android:visibility="invisible"
-        android:fontFamily="@font/all_your_font_are_belong_to_us"/>
+        android:visibility="invisible" />
 
     <LinearLayout
         android:layout_width="match_parent"

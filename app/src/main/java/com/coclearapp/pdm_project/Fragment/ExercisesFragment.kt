@@ -93,8 +93,8 @@ class ExercisesFragment(private val exercise: Exercise) : Fragment() {
                 view.op_a.setBackgroundResource(R.drawable.circular_textview_wrong)
                 view.op_a.setTextColor(getResources().getColor(R.color.cirular_textview_background))
                 view.op_a.isEnabled = false
-                view.tv_correct.setText(R.string.incorrecto_string)
-                tv_correct.visibility = View.VISIBLE
+                var mediaPlayer: MediaPlayer? = MediaPlayer.create(context, R.raw.incorrecto)
+                mediaPlayer?.start()
 
             }
         }
@@ -143,8 +143,8 @@ class ExercisesFragment(private val exercise: Exercise) : Fragment() {
                 view.op_b.setBackgroundResource(R.drawable.circular_textview_wrong)
                 view.op_b.setTextColor(getResources().getColor(R.color.cirular_textview_background))
                 view.op_b.isEnabled = false
-                view.tv_correct.setText(R.string.incorrecto_string)
-                tv_correct.visibility = View.VISIBLE
+                var mediaPlayer: MediaPlayer? = MediaPlayer.create(context, R.raw.incorrecto)
+                mediaPlayer?.start()
 
             }
         }
@@ -195,8 +195,8 @@ class ExercisesFragment(private val exercise: Exercise) : Fragment() {
                 view.op_c.setBackgroundResource(R.drawable.circular_textview_wrong)
                 view.op_c.setTextColor(getResources().getColor(R.color.cirular_textview_background))
                 view.op_c.isEnabled = false
-                view.tv_correct.setText(R.string.incorrecto_string)
-                tv_correct.visibility = View.VISIBLE
+                var mediaPlayer: MediaPlayer? = MediaPlayer.create(context, R.raw.incorrecto)
+                mediaPlayer?.start()
 
             }
         }

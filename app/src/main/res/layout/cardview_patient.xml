@@ -24,7 +24,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/ic_assignment_ind_black_24dp" />
+                android:background="@drawable/ic_icons8_contactos" />
 
             <TextView
                 android:id="@+id/patient_name"
