@@ -73,7 +73,7 @@
             android:gravity="center"
             android:text="@string/na_string"
             android:textColor="@color/background_item"
-            android:textSize="@dimen/letter_size" />
+            android:textSize="@dimen/number_size" />
 
         <TextView
             android:id="@+id/op_b"
@@ -85,7 +85,7 @@
             android:gravity="center"
             android:text="@string/na_string"
             android:textColor="@color/background_item"
-            android:textSize="@dimen/letter_size"
+            android:textSize="@dimen/number_size"
 
             />
 
@@ -99,7 +99,7 @@
             android:gravity="center"
             android:text="@string/na_string"
             android:textColor="@color/background_item"
-            android:textSize="@dimen/letter_size" />
+            android:textSize="@dimen/number_size" />
     </LinearLayout>
 
 
