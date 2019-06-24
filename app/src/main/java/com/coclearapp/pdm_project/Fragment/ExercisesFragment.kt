@@ -2,6 +2,7 @@ package com.coclearapp.pdm_project.Fragment
 
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,6 +47,7 @@ class ExercisesFragment(private val exercise: Exercise) : Fragment() {
                 op_a.visibility = View.INVISIBLE
                 op_b.visibility = View.INVISIBLE
                 op_c.visibility = View.INVISIBLE
+                view.tv_correct.setText(R.string.correcto_string)
                 tv_correct.visibility = View.VISIBLE
                 view.im_sound.setBackgroundResource(R.drawable.ic_chevron_right_black_24dp)
                 var mediaPlayer: MediaPlayer? = MediaPlayer.create(context, R.raw.aplausos)
@@ -86,6 +88,13 @@ class ExercisesFragment(private val exercise: Exercise) : Fragment() {
                 })
 
 
+
+            }else{
+                view.op_a.setBackgroundResource(R.drawable.circular_textview_wrong)
+                view.op_a.setTextColor(getResources().getColor(R.color.cirular_textview_background))
+                view.op_a.isEnabled = false
+                view.tv_correct.setText(R.string.incorrecto_string)
+                tv_correct.visibility = View.VISIBLE
 
             }
         }
@@ -95,6 +104,7 @@ class ExercisesFragment(private val exercise: Exercise) : Fragment() {
                 op_a.visibility = View.INVISIBLE
                 op_b.visibility = View.INVISIBLE
                 op_c.visibility = View.INVISIBLE
+                view.tv_correct.setText(R.string.correcto_string)
                 tv_correct.visibility = View.VISIBLE
                 view.im_sound.setBackgroundResource(R.drawable.ic_chevron_right_black_24dp)
                 var mediaPlayer: MediaPlayer? = MediaPlayer.create(context, R.raw.aplausos)
@@ -129,6 +139,13 @@ class ExercisesFragment(private val exercise: Exercise) : Fragment() {
                         }
                     }
                 })
+            }else{
+                view.op_b.setBackgroundResource(R.drawable.circular_textview_wrong)
+                view.op_b.setTextColor(getResources().getColor(R.color.cirular_textview_background))
+                view.op_b.isEnabled = false
+                view.tv_correct.setText(R.string.incorrecto_string)
+                tv_correct.visibility = View.VISIBLE
+
             }
         }
 
@@ -137,6 +154,7 @@ class ExercisesFragment(private val exercise: Exercise) : Fragment() {
                 op_a.visibility = View.INVISIBLE
                 op_b.visibility = View.INVISIBLE
                 op_c.visibility = View.INVISIBLE
+                view.tv_correct.setText(R.string.correcto_string)
                 tv_correct.visibility = View.VISIBLE
                 view.im_sound.setBackgroundResource(R.drawable.ic_chevron_right_black_24dp)
                 var mediaPlayer: MediaPlayer? = MediaPlayer.create(context, R.raw.aplausos)
@@ -172,6 +190,13 @@ class ExercisesFragment(private val exercise: Exercise) : Fragment() {
                         }
                     }
                 })
+
+            }else{
+                view.op_c.setBackgroundResource(R.drawable.circular_textview_wrong)
+                view.op_c.setTextColor(getResources().getColor(R.color.cirular_textview_background))
+                view.op_c.isEnabled = false
+                view.tv_correct.setText(R.string.incorrecto_string)
+                tv_correct.visibility = View.VISIBLE
 
             }
         }
