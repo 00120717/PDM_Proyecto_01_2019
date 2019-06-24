@@ -50,7 +50,7 @@ class ExercisesFragment(private val exercise: Exercise) : Fragment() {
                 view.tv_correct.setText(R.string.correcto_string)
                 tv_correct.visibility = View.VISIBLE
                 view.im_sound.setBackgroundResource(R.drawable.ic_chevron_right_black_24dp)
-                var mediaPlayer: MediaPlayer? = MediaPlayer.create(context, R.raw.aplausos)
+                var mediaPlayer: MediaPlayer? = MediaPlayer.create(context, R.raw.aplausos_v2)
                 mediaPlayer?.start()
 
                 exerciseViewModel.getOneByLevelAndNumber(exercise.Level,exercise.Number+1).observe(this, Observer {exer ->
@@ -107,7 +107,7 @@ class ExercisesFragment(private val exercise: Exercise) : Fragment() {
                 view.tv_correct.setText(R.string.correcto_string)
                 tv_correct.visibility = View.VISIBLE
                 view.im_sound.setBackgroundResource(R.drawable.ic_chevron_right_black_24dp)
-                var mediaPlayer: MediaPlayer? = MediaPlayer.create(context, R.raw.aplausos)
+                var mediaPlayer: MediaPlayer? = MediaPlayer.create(context, R.raw.aplausos_v2)
                 mediaPlayer?.start()
 
                 exerciseViewModel.getOneByLevelAndNumber(exercise.Level,exercise.Number+1).observe(this, Observer {exer ->
@@ -157,7 +157,7 @@ class ExercisesFragment(private val exercise: Exercise) : Fragment() {
                 view.tv_correct.setText(R.string.correcto_string)
                 tv_correct.visibility = View.VISIBLE
                 view.im_sound.setBackgroundResource(R.drawable.ic_chevron_right_black_24dp)
-                var mediaPlayer: MediaPlayer? = MediaPlayer.create(context, R.raw.aplausos)
+                var mediaPlayer: MediaPlayer? = MediaPlayer.create(context, R.raw.aplausos_v2)
                 mediaPlayer?.start()
 
 
