@@ -18,4 +18,6 @@
     <string name="correo">Correo</string>
     <string name="na_string">NA</string>
     <string name="pregunta_string">Pregunta</string>
+    <string name="correcto_string">CORRECTO</string>
+    <string name="feliz_string">FELICIDADES TERMINASTE EL NIVEL</string>
 </resources>

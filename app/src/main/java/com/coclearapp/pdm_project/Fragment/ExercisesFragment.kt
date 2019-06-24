@@ -43,6 +43,7 @@ class ExercisesFragment(private val exercise: Exercise) : Fragment() {
 
         view.op_a.setOnClickListener {
             if(validateOptionSelected(op_a.text.toString(),exercise.Answer)){
+                op_a.visibility = View.INVISIBLE
                 op_b.visibility = View.INVISIBLE
                 op_c.visibility = View.INVISIBLE
                 tv_correct.visibility = View.VISIBLE
@@ -52,17 +53,36 @@ class ExercisesFragment(private val exercise: Exercise) : Fragment() {
 
                 exerciseViewModel.getOneByLevelAndNumber(exercise.Level,exercise.Number+1).observe(this, Observer {exer ->
 
-                    view.im_sound.setOnClickListener {
+                    if(exer != null){
+                        view.im_sound.setOnClickListener {
 
-                        var fragment = newInstance(exer)
+                            var fragment = newInstance(exer)
 
-                        fragmentManager!!
-                                .beginTransaction()
-                                .setCustomAnimations(R.anim.push_left_in,R.anim.push_left_out,R.anim.push_left_in,R.anim.push_left_out)
-                                .replace(R.id.fl_content, fragment)
-                                .commit()
+                            fragmentManager!!
+                                    .beginTransaction()
+                                    .setCustomAnimations(R.anim.push_left_in,R.anim.push_left_out,R.anim.push_left_in,R.anim.push_left_out)
+                                    .replace(R.id.fl_content, fragment)
+                                    .commit()
+
+                        }
+                    }else{
+                        view.tv_correct.setText(R.string.feliz_string)
+                        view.im_sound.setOnClickListener {
+
+                            var fragment = LevelsExcersicesFragment.newInstance()
+
+                            fragmentManager!!
+                                    .beginTransaction()
+                                    .setCustomAnimations(R.anim.push_left_in,R.anim.push_left_out,R.anim.push_left_in,R.anim.push_left_out)
+                                    .replace(R.id.fl_content, fragment)
+                                    .commit()
+
+                        }
 
                     }
+
+
+
                 })
 
 
@@ -73,6 +93,49 @@ class ExercisesFragment(private val exercise: Exercise) : Fragment() {
         view.op_b.setOnClickListener {
             if(validateOptionSelected(op_b.text.toString(),exercise.Answer)){
                 op_a.visibility = View.INVISIBLE
+                op_b.visibility = View.INVISIBLE
+                op_c.visibility = View.INVISIBLE
+                tv_correct.visibility = View.VISIBLE
+                view.im_sound.setBackgroundResource(R.drawable.ic_chevron_right_black_24dp)
+                var mediaPlayer: MediaPlayer? = MediaPlayer.create(context, R.raw.aplausos)
+                mediaPlayer?.start()
+
+                exerciseViewModel.getOneByLevelAndNumber(exercise.Level,exercise.Number+1).observe(this, Observer {exer ->
+
+                    if(exer != null){
+                        view.im_sound.setOnClickListener {
+
+                            var fragment = newInstance(exer)
+
+                            fragmentManager!!
+                                    .beginTransaction()
+                                    .setCustomAnimations(R.anim.push_left_in,R.anim.push_left_out,R.anim.push_left_in,R.anim.push_left_out)
+                                    .replace(R.id.fl_content, fragment)
+                                    .commit()
+
+                        }
+                    }else{
+                        view.tv_correct.setText(R.string.feliz_string)
+                        view.im_sound.setOnClickListener {
+
+                            var fragment = LevelsExcersicesFragment.newInstance()
+
+                            fragmentManager!!
+                                    .beginTransaction()
+                                    .setCustomAnimations(R.anim.push_left_in,R.anim.push_left_out,R.anim.push_left_in,R.anim.push_left_out)
+                                    .replace(R.id.fl_content, fragment)
+                                    .commit()
+
+                        }
+                    }
+                })
+            }
+        }
+
+        view.op_c.setOnClickListener {
+            if(validateOptionSelected(op_c.text.toString(),exercise.Answer)){
+                op_a.visibility = View.INVISIBLE
+                op_b.visibility = View.INVISIBLE
                 op_c.visibility = View.INVISIBLE
                 tv_correct.visibility = View.VISIBLE
                 view.im_sound.setBackgroundResource(R.drawable.ic_chevron_right_black_24dp)
@@ -80,19 +143,35 @@ class ExercisesFragment(private val exercise: Exercise) : Fragment() {
                 mediaPlayer?.start()
 
 
-            }
-        }
+                exerciseViewModel.getOneByLevelAndNumber(exercise.Level,exercise.Number+1).observe(this, Observer {exer ->
 
-        view.op_c.setOnClickListener {
-            if(validateOptionSelected(op_c.text.toString(),exercise.Answer)){
-                op_b.visibility = View.INVISIBLE
-                op_a.visibility = View.INVISIBLE
-                tv_correct.visibility = View.VISIBLE
-                view.im_sound.setBackgroundResource(R.drawable.ic_chevron_right_black_24dp)
-                var mediaPlayer: MediaPlayer? = MediaPlayer.create(context, R.raw.aplausos)
-                mediaPlayer?.start()
+                    if(exer != null){
+                        view.im_sound.setOnClickListener {
 
+                            var fragment = newInstance(exer)
 
+                            fragmentManager!!
+                                    .beginTransaction()
+                                    .setCustomAnimations(R.anim.push_left_in,R.anim.push_left_out,R.anim.push_left_in,R.anim.push_left_out)
+                                    .replace(R.id.fl_content, fragment)
+                                    .commit()
+
+                        }
+                    }else{
+                        view.tv_correct.setText(R.string.feliz_string)
+                        view.im_sound.setOnClickListener {
+
+                            var fragment = LevelsExcersicesFragment.newInstance()
+
+                            fragmentManager!!
+                                    .beginTransaction()
+                                    .setCustomAnimations(R.anim.push_left_in,R.anim.push_left_out,R.anim.push_left_in,R.anim.push_left_out)
+                                    .replace(R.id.fl_content, fragment)
+                                    .commit()
+
+                        }
+                    }
+                })
 
             }
         }

@@ -34,7 +34,7 @@
         android:id="@+id/tv_correct"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CORRECTO"
+        android:text="@string/correcto_string"
         android:textSize="@dimen/extra_size"
         android:gravity="center"
         android:visibility="invisible"
