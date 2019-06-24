@@ -206,6 +206,15 @@ class ExercisesFragment(private val exercise: Exercise) : Fragment() {
             mediaPlayer?.start()
         }
 
+        view.close_question.setOnClickListener {
+            var fragment = RVExercisesFragment.newInstance(exercise.Level)
+
+            fragmentManager!!
+                .beginTransaction()
+                .setCustomAnimations(R.anim.push_left_in,R.anim.push_left_out,R.anim.push_left_in,R.anim.push_left_out)
+                .replace(R.id.fl_content, fragment)
+                .commit()
+        }
 
         return view
     }
