@@ -17,4 +17,5 @@
     <string name="aun_no_tienes_cuenta">¿Aun no tienes cuenta? Crea una</string>
     <string name="correo">Correo</string>
     <string name="na_string">NA</string>
+    <string name="pregunta_string">Pregunta</string>
 </resources>
