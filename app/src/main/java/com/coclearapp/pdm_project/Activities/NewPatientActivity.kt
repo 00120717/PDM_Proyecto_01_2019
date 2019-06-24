@@ -24,7 +24,7 @@ class NewPatientActivity : AppCompatActivity() {
     private var mDatabase: DatabaseReference? = null
 
     private lateinit var patientViewModel: PatientViewModel
-
+    var message = "Registrando..."
 
     var calendar = Calendar.getInstance()
     var yearCurrent = calendar.get(Calendar.YEAR)
@@ -87,7 +87,7 @@ class NewPatientActivity : AppCompatActivity() {
 
     private fun showProgressDialog() {
         progressDialog.isIndeterminate = true
-        progressDialog.setMessage("Authenticating...")
+        progressDialog.setMessage(message)
         progressDialog.show()
     }
 

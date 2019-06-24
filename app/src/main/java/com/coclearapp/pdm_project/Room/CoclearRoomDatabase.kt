@@ -88,11 +88,11 @@ abstract class CoclearRoomDatabase : RoomDatabase() {
             exerciseDao: ExerciseDao
 
         ) {
-            exerciseDao.deleteAllExercise()
+           /* exerciseDao.deleteAllExercise()
             soundDao.deleteAllSound()
             userDao.deleteAllUser()
             rolDao.deleteAllRol()
-            patientDao.deleteAllPatient()
+            patientDao.deleteAllPatient()*/
 
 
 

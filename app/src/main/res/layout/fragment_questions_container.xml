@@ -14,9 +14,9 @@
         android:background="@color/transparent">
 
         <ImageButton
-            android:layout_width="@dimen/extra_size"
-            android:layout_height="@dimen/extra_size"
-            android:background="@drawable/ic_icons8_eliminar" />
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/ic_icons8_eliminar"/>
 
         <TextView
             android:id="@+id/tv_question"
@@ -27,6 +27,7 @@
             android:backgroundTint="@color/aluminum"
             android:fontFamily="@font/agent_red"
             android:gravity="center"
+            android:paddingRight="32dp"
             android:text="@string/pregunta_string"
             android:textColor="@color/common_google_signin_btn_text_dark_focused"
             android:textSize="@dimen/high_size"
