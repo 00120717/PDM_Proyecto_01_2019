@@ -9,4 +9,6 @@ class ExerciseRepository(private val exerciseDao: ExerciseDao){
     fun getExerciseByLevel(level: Int): LiveData<List<Exercise>> = exerciseDao.getExersicesByLevel(level)
 
     fun getExerciseById(id: Long):LiveData<Exercise> = exerciseDao.getQuestionById(id)
+
+    fun getOneByLevelAndNumber(level: Int,number: Int) = exerciseDao.getQuestionByLevelAndNumber(level,number)
 }

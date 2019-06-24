@@ -1,81 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:gravity="center"
-              android:background="#E2B0E0E6"
->
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E2B0E0E6"
+    android:gravity="center"
+    android:orientation="vertical">
 
-<TextView
+    <TextView
         android:id="@+id/tv_question"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:background="@color/transparent"
+        android:backgroundTint="@color/aluminum"
+        android:fontFamily="@font/agent_red"
+        android:gravity="center"
         android:text="@string/pregunta_string"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textSize="@dimen/high_size"
-        android:gravity="center"
-        android:background="@color/transparent"
-        android:fontFamily="@font/agent_red"
-        android:backgroundTint="@color/aluminum"
 
-/>
+        />
+
     <ImageButton
-            android:id="@+id/im_sound"
-            android:layout_width="200dp"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:background="@drawable/ic_volume_up_black_24dp"
+        android:id="@+id/im_sound"
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:background="@drawable/ic_volume_up_black_24dp"
 
-    />
+        />
+
+    <TextView
+        android:id="@+id/tv_correct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CORRECTO"
+        android:textSize="@dimen/extra_size"
+        android:gravity="center"
+        android:visibility="invisible"
+        android:fontFamily="@font/all_your_font_are_belong_to_us"/>
 
     <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+
+        >
+
+        <TextView
+            android:id="@+id/op_a"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-
-    >
-
-        <TextView
-                android:id="@+id/op_a"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:text="@string/na_string"
-                android:textSize="@dimen/letter_size"
-                android:gravity="center"
-                android:textColor="@color/background_item"
-                android:background="@drawable/circular_textview"
-                android:fontFamily="@font/atiqua_in_grid_balloons"
-        />
+            android:background="@drawable/circular_textview"
+            android:fontFamily="@font/atiqua_in_grid_balloons"
+            android:gravity="center"
+            android:text="@string/na_string"
+            android:textColor="@color/background_item"
+            android:textSize="@dimen/letter_size" />
 
         <TextView
-                android:id="@+id/op_b"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:text="@string/na_string"
-                android:fontFamily="@font/atiqua_in_grid_balloons"
-                android:textSize="@dimen/letter_size"
-                android:gravity="center"
-                android:textColor="@color/background_item"
-                android:background="@drawable/circular_textview"
+            android:id="@+id/op_b"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/circular_textview"
+            android:fontFamily="@font/atiqua_in_grid_balloons"
+            android:gravity="center"
+            android:text="@string/na_string"
+            android:textColor="@color/background_item"
+            android:textSize="@dimen/letter_size"
 
-        />
+            />
 
         <TextView
-                android:id="@+id/op_c"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:text="@string/na_string"
-                android:fontFamily="@font/atiqua_in_grid_balloons"
-                android:textSize="@dimen/letter_size"
-                android:gravity="center"
-                android:textColor="@color/background_item"
-                android:background="@drawable/circular_textview"
-        />
+            android:id="@+id/op_c"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/circular_textview"
+            android:fontFamily="@font/atiqua_in_grid_balloons"
+            android:gravity="center"
+            android:text="@string/na_string"
+            android:textColor="@color/background_item"
+            android:textSize="@dimen/letter_size" />
     </LinearLayout>
 
 

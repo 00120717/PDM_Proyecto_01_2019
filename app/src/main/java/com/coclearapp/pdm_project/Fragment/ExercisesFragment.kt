@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.coclearapp.pdm_project.R
 import com.coclearapp.pdm_project.Room.Entity.Exercise
+import com.coclearapp.pdm_project.ViewModel.ExerciseViewModel
 import com.coclearapp.pdm_project.ViewModel.LevelViewModel
 import kotlinx.android.synthetic.main.fragment_questions_container.*
 import kotlinx.android.synthetic.main.fragment_questions_container.view.*
@@ -16,6 +18,7 @@ import kotlinx.android.synthetic.main.fragment_questions_container.view.*
 class ExercisesFragment(private val exercise: Exercise) : Fragment() {
 
     private lateinit var model: LevelViewModel
+    private lateinit var exerciseViewModel: ExerciseViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,10 +39,33 @@ class ExercisesFragment(private val exercise: Exercise) : Fragment() {
             op_c.text = exercise.Optionc
         }
 
+        exerciseViewModel = ViewModelProviders.of(this).get(ExerciseViewModel::class.java)
+
         view.op_a.setOnClickListener {
             if(validateOptionSelected(op_a.text.toString(),exercise.Answer)){
                 op_b.visibility = View.INVISIBLE
                 op_c.visibility = View.INVISIBLE
+                tv_correct.visibility = View.VISIBLE
+                view.im_sound.setBackgroundResource(R.drawable.ic_chevron_right_black_24dp)
+                var mediaPlayer: MediaPlayer? = MediaPlayer.create(context, R.raw.aplausos)
+                mediaPlayer?.start()
+
+                exerciseViewModel.getOneByLevelAndNumber(exercise.Level,exercise.Number+1).observe(this, Observer {exer ->
+
+                    view.im_sound.setOnClickListener {
+
+                        var fragment = newInstance(exer)
+
+                        fragmentManager!!
+                                .beginTransaction()
+                                .setCustomAnimations(R.anim.push_left_in,R.anim.push_left_out,R.anim.push_left_in,R.anim.push_left_out)
+                                .replace(R.id.fl_content, fragment)
+                                .commit()
+
+                    }
+                })
+
+
 
             }
         }
@@ -48,6 +74,11 @@ class ExercisesFragment(private val exercise: Exercise) : Fragment() {
             if(validateOptionSelected(op_b.text.toString(),exercise.Answer)){
                 op_a.visibility = View.INVISIBLE
                 op_c.visibility = View.INVISIBLE
+                tv_correct.visibility = View.VISIBLE
+                view.im_sound.setBackgroundResource(R.drawable.ic_chevron_right_black_24dp)
+                var mediaPlayer: MediaPlayer? = MediaPlayer.create(context, R.raw.aplausos)
+                mediaPlayer?.start()
+
 
             }
         }
@@ -56,6 +87,12 @@ class ExercisesFragment(private val exercise: Exercise) : Fragment() {
             if(validateOptionSelected(op_c.text.toString(),exercise.Answer)){
                 op_b.visibility = View.INVISIBLE
                 op_a.visibility = View.INVISIBLE
+                tv_correct.visibility = View.VISIBLE
+                view.im_sound.setBackgroundResource(R.drawable.ic_chevron_right_black_24dp)
+                var mediaPlayer: MediaPlayer? = MediaPlayer.create(context, R.raw.aplausos)
+                mediaPlayer?.start()
+
+
 
             }
         }
