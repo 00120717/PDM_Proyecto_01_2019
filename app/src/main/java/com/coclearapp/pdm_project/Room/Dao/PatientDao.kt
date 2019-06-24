@@ -19,6 +19,11 @@ interface PatientDao {
     @Query("SELECT * from Patient WHERE Name_Patient==:patient ")
     fun getByPatient(patient:String): LiveData<Patient>
 
+
+    @Query("SELECT * FROM patient p, user u WHERE u.id= :id AND Name_Patient LIKE :search ")
+    fun getpatientsByUser(id: String, search: String): LiveData<List<Patient>>
+
+
     @Insert
     suspend fun insertPatient(patient: Patient)
 

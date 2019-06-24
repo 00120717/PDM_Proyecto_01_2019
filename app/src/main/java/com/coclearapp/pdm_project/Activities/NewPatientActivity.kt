@@ -6,8 +6,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.coclearapp.pdm_project.Models.Patient
+import androidx.lifecycle.ViewModelProviders
 import com.coclearapp.pdm_project.R
+import com.coclearapp.pdm_project.Room.Entity.Patient
+import com.coclearapp.pdm_project.ViewModel.PatientViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -21,6 +23,8 @@ class NewPatientActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private var mDatabase: DatabaseReference? = null
 
+    private lateinit var patientViewModel: PatientViewModel
+
 
     var calendar = Calendar.getInstance()
     var yearCurrent = calendar.get(Calendar.YEAR)
@@ -31,6 +35,8 @@ class NewPatientActivity : AppCompatActivity() {
 
         mDatabase = FirebaseDatabase.getInstance().reference
         auth = FirebaseAuth.getInstance()
+
+        patientViewModel = ViewModelProviders.of(this).get(PatientViewModel::class.java)
 
         Submit_Patient.setOnClickListener {
             savePatient()
@@ -58,12 +64,16 @@ class NewPatientActivity : AppCompatActivity() {
 
 
         val patient = Patient(
-            input_name_patient.text.toString(),
-            "${id_patient_day.text}/${id_patient_month.text}/${id_patient_year.text}",
-            0
+            Name_Patient = input_name_patient.text.toString(),
+            Date = "${id_patient_day.text}/${id_patient_month.text}/${id_patient_year.text}",
+            Level = 1
         )
         childUpdates["/User/${user!!.uid}/Patient/$id"] = patient
         mDatabase!!.updateChildren(childUpdates)
+
+        patientViewModel.insertPatient(patient)
+
+
 
         //Pasa a la actividad de pacientes
         action()

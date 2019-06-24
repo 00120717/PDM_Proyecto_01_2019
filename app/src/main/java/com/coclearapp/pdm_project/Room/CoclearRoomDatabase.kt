@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 
 @Database(
     entities = [Patient::class, Rol::class, User::class, Sound::class, Exercise::class],
-    version = 5
+    version = 6
 )
 
 abstract class CoclearRoomDatabase : RoomDatabase() {

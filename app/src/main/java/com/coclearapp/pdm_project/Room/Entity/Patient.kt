@@ -8,9 +8,6 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "Patient")
 
 data class Patient(
-        @PrimaryKey(autoGenerate = true)
-        @ColumnInfo(name = "id")
-        val id: Int,
         @ColumnInfo(name = "Name_Patient")
         val Name_Patient: String,
         @ColumnInfo(name = "Date")
@@ -18,4 +15,8 @@ data class Patient(
         @ColumnInfo(name = "Level")
         val Level: Int
 
-)
+){
+        @PrimaryKey(autoGenerate = true)
+        @ColumnInfo(name = "id")
+        var id: Int = 0
+}

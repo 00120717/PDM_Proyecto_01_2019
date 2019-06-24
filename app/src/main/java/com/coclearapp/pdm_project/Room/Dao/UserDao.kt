@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import com.coclearapp.pdm_project.Room.Entity.Patient
 import com.coclearapp.pdm_project.Room.Entity.User
 
 @Dao
@@ -16,6 +17,8 @@ interface UserDao {
 
     @Query("SELECT * from User WHERE User.Name_User==:name_user ")
     fun getByUser(name_user:String): LiveData<User>
+
+
 
     @Insert
     suspend fun insertUser(user: User)
