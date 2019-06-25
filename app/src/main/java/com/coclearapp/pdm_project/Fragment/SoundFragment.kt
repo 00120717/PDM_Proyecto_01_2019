@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.load.engine.Resource
@@ -70,7 +71,7 @@ class uSoundFragment(private val level: Int): Fragment(){
         }
 
         view.rview.apply {
-            layoutManager = LinearLayoutManager(this.context)
+            layoutManager = GridLayoutManager(this.context,2)
             adapter = viewAdapter
 
         }

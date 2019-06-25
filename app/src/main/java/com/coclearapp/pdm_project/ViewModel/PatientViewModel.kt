@@ -23,6 +23,9 @@ class PatientViewModel(application: Application) : AndroidViewModel(application)
     //funcion obtener pacientes
     fun getAllPatients() = patientRepo.getAllPatients()
 
+
+    fun getSearch(id: String, search: String) = patientRepo.searchPatiens(id,search)
+
     //funcion insertar paciente
     fun insertPatient(patient: Patient) = viewModelScope.launch(Dispatchers.IO) {
         patientRepo.insertPatient(patient)

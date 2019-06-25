@@ -7,9 +7,10 @@
               android:padding="16dp"
 >
 <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="end"
+        android:layout_gravity="end"
 >
     <TextView
             android:layout_width="wrap_content"
@@ -21,7 +22,6 @@
 
     <ImageButton
             android:layout_gravity="end"
-            android:id="@+id/logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_power_settings_new_black_24dp"

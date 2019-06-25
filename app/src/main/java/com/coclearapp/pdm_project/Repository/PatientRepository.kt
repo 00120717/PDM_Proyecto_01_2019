@@ -9,6 +9,8 @@ class PatientRepository(private val patientDao: PatientDao){
 
     fun getAllPatients():LiveData<List<Patient>> = patientDao.getAllPatient()
 
+    fun searchPatiens(id: String, search: String) = patientDao.getpatientsByUser(id,search)
+
     @WorkerThread
     suspend  fun insertPatient(patient: Patient) {
         patientDao.insertPatient(patient)
