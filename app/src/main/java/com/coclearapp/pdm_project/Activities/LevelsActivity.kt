@@ -21,13 +21,13 @@ class LevelsActivity : AppCompatActivity() {
         patient_name_levels.text = intent.getStringExtra("name")
 
         btn_exercises.setOnClickListener {
-
+            hand_pointer.visibility = View.INVISIBLE
             changeFragmentExercises()
 
         }
 
         btn_sounds.setOnClickListener {
-
+            hand_pointer.visibility = View.INVISIBLE
             changeFragmentSounds()
         }
 

@@ -59,6 +59,7 @@
             android:layout_weight="7">
 
         <ImageView
+                android:id="@+id/hand_pointer"
                 android:layout_width="269dp"
                 android:layout_height="270dp"
                 android:padding="@dimen/high_size"

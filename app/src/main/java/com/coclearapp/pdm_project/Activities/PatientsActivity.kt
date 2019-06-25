@@ -68,7 +68,7 @@ class PatientsActivity: AppCompatActivity(), LifecycleOwner {
 
     private fun getDataFirebase(){
         val user = auth.currentUser
-        mDatabase!!.child("User/${user!!.uid}/Patient").addValueEventListener(
+        mDatabase!!.child("User/${user!!.uid}").addValueEventListener(
             object: ValueEventListener {
                 override fun onCancelled(p0: DatabaseError) {
                     TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
