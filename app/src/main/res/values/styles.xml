@@ -30,4 +30,10 @@
         <item name="android:background">@color/primary</item>
     </style>
 
+    <style name="CampoTextoPurpura" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorControlNormal">#CE93D8</item>
+        <item name="colorControlActivated">#AB47BC</item>
+        <item name="android:textColorHighlight">#E1BEE7</item>
+    </style>
+
 </resources>

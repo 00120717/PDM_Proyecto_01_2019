@@ -1,42 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.coclearapp.pdm_project">
+    package="com.coclearapp.pdm_project">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
-            android:allowBackup="true"
-            android:icon="@drawable/app_icon"
-            android:label="@string/app_name"
-            android:roundIcon="@drawable/app_icon"
-            android:installLocation="internalOnly"
-            android:supportsRtl="true"
-            android:theme="@style/AppTheme">
+        android:allowBackup="true"
+        android:icon="@drawable/app_icon"
+        android:installLocation="internalOnly"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/app_icon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
 
-        <activity android:name="com.coclearapp.pdm_project.Activities.LoginActivity"
-                  android:screenOrientation="userLandscape">
+        <activity
+            android:name="com.coclearapp.pdm_project.Activities.LoginActivity"
+            android:screenOrientation="userLandscape"
+            android:theme="@style/CampoTextoPurpura">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name="com.coclearapp.pdm_project.Activities.SignupActivity"
-                  android:screenOrientation="userLandscape">
-        </activity>
-        <activity android:name="com.coclearapp.pdm_project.Activities.MainActivity"
-                  android:screenOrientation="userLandscape">
+        <activity
+            android:name="com.coclearapp.pdm_project.Activities.SignupActivity"
+            android:screenOrientation="userLandscape"
+            android:theme="@style/CampoTextoPurpura"></activity>
+        <activity
+            android:name="com.coclearapp.pdm_project.Activities.MainActivity"
+            android:screenOrientation="userLandscape">
 
         </activity>
 
-        <activity android:name="com.coclearapp.pdm_project.Activities.LevelsActivity"
-                  android:screenOrientation="userLandscape"/>
-        <activity android:name="com.coclearapp.pdm_project.Activities.NewPatientActivity"
-                  android:screenOrientation="userLandscape"/>
-        <activity android:name=".Activities.PatientsActivity" android:screenOrientation="userLandscape"/>
+        <activity
+            android:name="com.coclearapp.pdm_project.Activities.LevelsActivity"
+            android:screenOrientation="userLandscape" />
+        <activity
+            android:name="com.coclearapp.pdm_project.Activities.NewPatientActivity"
+            android:screenOrientation="userLandscape"
+            android:theme="@style/CampoTextoPurpura" />
+        <activity
+            android:name=".Activities.PatientsActivity"
+            android:screenOrientation="userLandscape" />
 
     </application>
 
