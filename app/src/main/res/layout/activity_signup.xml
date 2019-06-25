@@ -138,7 +138,9 @@
                 android:layout_marginBottom="24dp"
                 android:onClick="CreateNewAccount"
                 android:padding="12dp"
-                android:text="@string/crear_cuenta" />
+                android:text="@string/crear_cuenta"
+                android:background="@drawable/circular_btn_login"
+            />
 
             <TextView
                 android:id="@+id/link_login"

@@ -55,10 +55,17 @@
             android:id="@+id/fl_content"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="7"
+            android:layout_weight="7">
 
-    >
+        <ImageView
+                android:layout_width="269dp"
+                android:layout_height="270dp"
+                android:padding="@dimen/high_size"
+                android:background="@drawable/ic_seleccionar"
+                android:layout_gravity="center"
 
+
+        />
 
     </FrameLayout>
 
