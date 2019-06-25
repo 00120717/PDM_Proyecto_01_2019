@@ -23,7 +23,6 @@ class NewPatientActivity : AppCompatActivity() {
     private var mDatabase: DatabaseReference? = null
 
     private lateinit var patientViewModel: PatientViewModel
-    var message = "Registrando..."
 
     var calendar = Calendar.getInstance()
     var yearCurrent = calendar.get(Calendar.YEAR)
@@ -50,17 +49,13 @@ class NewPatientActivity : AppCompatActivity() {
         }
 
         showProgressDialog()
+
+
         //Firebase
         val user = auth.currentUser
         val childUpdates = HashMap<String, Any>()
 
         Log.d("userid", user!!.uid)
-
-
-        //Guarda datos en Firebase
-        // TODO: Consulta con la base
-        var id = 1
-
 
         val patient = Patient(
             Name_Patient = input_name_patient.text.toString(),
@@ -68,16 +63,39 @@ class NewPatientActivity : AppCompatActivity() {
             Level = 0,
             idUser = user.uid
         )
-        childUpdates.put("/Patient/${patient.idPatient+1}", patient)
-       // childUpdates.put("/User/" + user!!.uid + "/Patient",user.uid)
 
-        mDatabase!!.updateChildren(childUpdates)
-
-
-
-
-
+        //Guarda data en room
         patientViewModel.insertPatient(patient)
+
+
+
+        //Guarda datos en Firebase
+        var id:Long
+
+        val viewModel = ViewModelProviders.of(this).get(PatientViewModel::class.java)
+        viewModel.getLastid().observe(this, androidx.lifecycle.Observer {Users ->
+
+            for (user in Users) {
+                Log.d("Lista de idPatient", user.toString())
+
+
+            }
+            //id = it
+           // Log.d("idPatient",id.toString())
+        })
+
+
+
+
+       // childUpdates.put("/Patient/${patient.idPatient}", patient)
+
+
+        //mDatabase!!.updateChildren(childUpdates)
+
+
+
+
+
 
 
 
@@ -106,7 +124,7 @@ class NewPatientActivity : AppCompatActivity() {
 
     private fun showProgressDialog() {
         progressDialog.isIndeterminate = true
-        progressDialog.setMessage(message)
+        progressDialog.setMessage("Registrando...")
         progressDialog.show()
     }
 

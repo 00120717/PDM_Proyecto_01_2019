@@ -92,8 +92,8 @@ abstract class CoclearRoomDatabase : RoomDatabase() {
            /*
             soundDao.deleteAllSound()
             userDao.deleteAllUser()
-            rolDao.deleteAllRol()
-            patientDao.deleteAllPatient()*/
+            rolDao.deleteAllRol()*/
+            patientDao.deleteAllPatient()
 
 
 

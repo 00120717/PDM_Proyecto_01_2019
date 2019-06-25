@@ -30,4 +30,7 @@ class PatientViewModel(application: Application) : AndroidViewModel(application)
     fun insertPatient(patient: Patient) = viewModelScope.launch(Dispatchers.IO) {
         patientRepo.insertPatient(patient)
     }
+
+    //funcion para conseguir ultimo id
+    fun getLastid() = patientRepo.getLastid()
 }

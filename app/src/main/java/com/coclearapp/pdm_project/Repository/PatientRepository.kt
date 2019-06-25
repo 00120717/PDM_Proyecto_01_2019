@@ -16,4 +16,5 @@ class PatientRepository(private val patientDao: PatientDao){
         patientDao.insertPatient(patient)
     }
 
+    fun getLastid():LiveData<List<Patient>> = patientDao.getLastid()
 }
