@@ -7,11 +7,36 @@
     android:orientation="vertical">
 
 
-    <ImageButton
-        android:id="@+id/close_button"
-        android:layout_width="@dimen/extra_size"
-        android:layout_height="@dimen/extra_size"
-        android:background="@drawable/ic_icons8_eliminar"/>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent">
+
+        <ImageButton
+                android:id="@+id/close_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_icons8_eliminar"/>
+
+
+
+        <TextView
+                android:id="@+id/id_level_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+
+                android:backgroundTint="@color/transparent"
+                android:fontFamily="@font/agent_red"
+                android:gravity="center"
+                android:paddingRight="32dp"
+                android:text="@string/nivel_string"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="@dimen/medium_size"
+        />
+
+    </LinearLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rview"
