@@ -13,10 +13,11 @@ data class Patient(
         @ColumnInfo(name = "Date")
         val Date: String,
         @ColumnInfo(name = "Level")
-        val Level: Int
+        val Level: Int,
+        @ColumnInfo(name = "idUser")
+        var idUser: String
 
 ){
         @PrimaryKey(autoGenerate = true)
-        @ColumnInfo(name = "id")
-        var id: Int = 0
+        var idPatient : Long = 0
 }

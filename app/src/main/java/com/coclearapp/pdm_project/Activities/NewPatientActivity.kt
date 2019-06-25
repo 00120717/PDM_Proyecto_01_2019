@@ -4,7 +4,6 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.coclearapp.pdm_project.R
@@ -66,15 +65,35 @@ class NewPatientActivity : AppCompatActivity() {
         val patient = Patient(
             Name_Patient = input_name_patient.text.toString(),
             Date = "${id_patient_day.text}/${id_patient_month.text}/${id_patient_year.text}",
-            Level = 1
+            Level = 0,
+            idUser = user.uid
         )
-        childUpdates["/User/${user!!.uid}/Patient/$id"] = patient
+        childUpdates.put("/Patient/${patient.idPatient+1}", patient)
+       // childUpdates.put("/User/" + user!!.uid + "/Patient",user.uid)
+
         mDatabase!!.updateChildren(childUpdates)
+
+
+
+
 
         patientViewModel.insertPatient(patient)
 
 
 
+
+        // TODO: Consulta con la base
+       /* var id = 1
+
+        val patient = Patient(
+            input_name_patient.text.toString(),
+            date,
+            0
+        )
+        childUpdates["/User/${user!!.uid}/Patient/$id"] = patient
+        mDatabase!!.updateChildren(childUpdates)
+
+*/
         //Pasa a la actividad de pacientes
         action()
 
