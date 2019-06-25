@@ -20,7 +20,7 @@ import com.coclearapp.pdm_project.ViewModel.LevelViewModel
 import com.coclearapp.pdm_project.ViewModel.SoundViewModel
 import kotlinx.android.synthetic.main.fragment_grid_exercises.view.*
 
-class uSoundFragment(private val level: Int): Fragment(){
+class SoundFragment(private val level: Int): Fragment(){
     private lateinit var viewAdapter: LettersAdapter
     private lateinit var viewManager: RecyclerView.LayoutManager
     private lateinit var soundViewModel: SoundViewModel
