@@ -36,7 +36,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/correo"
-                    android:inputType="textEmailAddress" />
+                    android:inputType="textEmailAddress"
+            />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!--  Password Label -->
@@ -51,7 +52,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/password"
-                    android:inputType="textPassword" />
+                    android:inputType="textPassword"
+                    android:background=""
+            />
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
@@ -61,7 +64,9 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="24dp"
                 android:padding="12dp"
-                android:text="@string/inicia_sesion" />
+                android:text="@string/inicia_sesion"
+
+        />
 
         <TextView
                 android:id="@+id/link_signup"
@@ -72,7 +77,8 @@
                 android:paddingBottom="20dp"
                 android:gravity="center"
                 android:text="@string/aun_no_tienes_cuenta"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+        />
 
     </LinearLayout>
 </ScrollView>
