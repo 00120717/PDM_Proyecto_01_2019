@@ -3,7 +3,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:gravity="center"
-              android:background="@drawable/fondo_newPatient"
+              android:background="@drawable/fondo_newpatient"
               android:orientation="vertical"
               android:padding="@dimen/medium_size">
 
