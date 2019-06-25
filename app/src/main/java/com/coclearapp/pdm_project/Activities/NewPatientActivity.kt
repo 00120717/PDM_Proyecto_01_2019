@@ -21,6 +21,7 @@ class NewPatientActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private var mDatabase: DatabaseReference? = null
+    private var id:String = ""
 
     private lateinit var patientViewModel: PatientViewModel
 
@@ -70,48 +71,19 @@ class NewPatientActivity : AppCompatActivity() {
 
 
         //Guarda datos en Firebase
-        var id:Long
 
         val viewModel = ViewModelProviders.of(this).get(PatientViewModel::class.java)
         viewModel.getLastid().observe(this, androidx.lifecycle.Observer {Users ->
 
-            for (user in Users) {
-                Log.d("Lista de idPatient", user.toString())
+            id = Users.toString()
+            Log.d("idPatient",id)
+
+            childUpdates.put("/Patient/${id}+${user.uid}", patient)
+            mDatabase!!.updateChildren(childUpdates)
 
 
-            }
-            //id = it
-           // Log.d("idPatient",id.toString())
-        })
+      })
 
-
-
-
-       // childUpdates.put("/Patient/${patient.idPatient}", patient)
-
-
-        //mDatabase!!.updateChildren(childUpdates)
-
-
-
-
-
-
-
-
-
-        // TODO: Consulta con la base
-       /* var id = 1
-
-        val patient = Patient(
-            input_name_patient.text.toString(),
-            date,
-            0
-        )
-        childUpdates["/User/${user!!.uid}/Patient/$id"] = patient
-        mDatabase!!.updateChildren(childUpdates)
-
-*/
         //Pasa a la actividad de pacientes
         action()
 

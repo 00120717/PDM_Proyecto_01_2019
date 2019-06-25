@@ -34,6 +34,8 @@ class PatientsActivity: AppCompatActivity(), LifecycleOwner {
         setContentView(R.layout.activity_patients)
         auth = FirebaseAuth.getInstance()
         mDatabase = FirebaseDatabase.getInstance().reference
+
+
         getDataFirebase()
 
         initRecycle(emptyList())
