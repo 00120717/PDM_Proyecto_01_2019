@@ -15,8 +15,8 @@ interface PatientDao {
     fun getAllPatient(): LiveData<List<Patient>>
 
 
-    @Query("SELECT * from Patient ")
-    fun getLastid():LiveData<List<Patient>>
+    @Query("SELECT idPatient from Patient ORDER BY idPatient")
+    fun getLastid():LiveData<Long>
 
 
     @Query("SELECT * from Patient WHERE Name_Patient==:patient ")
