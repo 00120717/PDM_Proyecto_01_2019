@@ -18,6 +18,7 @@ import com.coclearapp.pdm_project.R
 import com.coclearapp.pdm_project.Room.Entity.Sound
 import com.coclearapp.pdm_project.ViewModel.LevelViewModel
 import com.coclearapp.pdm_project.ViewModel.SoundViewModel
+import kotlinx.android.synthetic.main.fragment_grid_exercises.*
 import kotlinx.android.synthetic.main.fragment_grid_exercises.view.*
 
 class SoundFragment(private val level: Int): Fragment(){
@@ -58,6 +59,8 @@ class SoundFragment(private val level: Int): Fragment(){
         var view = inflater.inflate(R.layout.fragment_grid_exercises, container, false)
 
 
+
+
         view.close_button.setOnClickListener {
             var fragment = LevelsSoundsFragment.newInstance()
 
@@ -69,6 +72,8 @@ class SoundFragment(private val level: Int): Fragment(){
 
 
         }
+
+        view.id_level_rv.text = "${view.id_level_rv.text} ${level.toString()}"
 
         view.rview.apply {
             layoutManager = GridLayoutManager(this.context,2)

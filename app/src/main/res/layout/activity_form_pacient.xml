@@ -3,6 +3,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:gravity="center"
+              android:background="@drawable/fondo_newpatient"
               android:orientation="vertical"
               android:padding="@dimen/medium_size">
 
@@ -20,7 +21,7 @@
                 android:gravity="center"
                 android:fontFamily="@font/alphabet_fridge_magnets"
                 android:text="@string/pacient_name"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/design_default_color_primary"
                 android:textSize="@dimen/extra_size"/>
 
         <EditText
@@ -42,7 +43,7 @@
                 android:gravity="center"
                 android:fontFamily="@font/alphabet_fridge_magnets"
                 android:text="@string/age_pacient"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/design_default_color_primary"
                 android:textSize="@dimen/extra_size"/>
 
         <LinearLayout

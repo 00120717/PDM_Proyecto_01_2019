@@ -8,6 +8,8 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "Patient")
 
 data class Patient(
+        @PrimaryKey(autoGenerate = true)
+        var idPatient : Long = 0,
         @ColumnInfo(name = "Name_Patient")
         val Name_Patient: String,
         @ColumnInfo(name = "Date")
@@ -17,7 +19,4 @@ data class Patient(
         @ColumnInfo(name = "idUser")
         var idUser: String
 
-){
-        @PrimaryKey(autoGenerate = true)
-        var idPatient : Long = 0
-}
+)

@@ -21,4 +21,5 @@
     <string name="correcto_string">CORRECTO</string>
     <string name="incorrecto_string">INCORRECTO</string>
     <string name="feliz_string">FELICIDADES TERMINASTE EL NIVEL</string>
+    <string name="nivel_string">NIVEL</string>
 </resources>
