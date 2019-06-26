@@ -75,15 +75,20 @@ class NewPatientActivity : AppCompatActivity() {
         val viewModel = ViewModelProviders.of(this).get(PatientViewModel::class.java)
         viewModel.getLastid().observe(this, androidx.lifecycle.Observer {Users ->
 
-            id = Users.toString()
-            Log.d("idPatient",id)
+            if (Users != null){
+                id = Users.toString()
+                Log.d("idPatient",id)
 
-            childUpdates.put("/Patient/${id}+${user.uid}", patient)
-            mDatabase!!.updateChildren(childUpdates)
+                childUpdates.put("/Patient/${id}+${user.uid}", patient)
+                mDatabase!!.updateChildren(childUpdates)
+
+            }
+
 
 
       })
 
+        hideProgressDialog()
         //Pasa a la actividad de pacientes
         action()
 
@@ -99,6 +104,13 @@ class NewPatientActivity : AppCompatActivity() {
         progressDialog.setMessage("Registrando...")
         progressDialog.show()
     }
+
+    private fun hideProgressDialog() {
+        if (progressDialog.isShowing) {
+            progressDialog.dismiss()
+        }
+    }
+
 
     private fun action() {
         startActivity(Intent(this, PatientsActivity::class.java))
@@ -138,12 +150,12 @@ class NewPatientActivity : AppCompatActivity() {
             id_patient_month!!.error = null
         }
 
-        if (id_patient_year.text.isEmpty() ){
+        if (id_patient_year.text.isEmpty()){
             id_patient_year!!.error = "Introduce algun año"
             valid = false
         }else
-            if(year.toInt() > yearCurrent) {
-            id_patient_year!!.error = "Introduce año correctamente"
+            if(year.toInt() > yearCurrent || year.toInt() < 2000) {
+            id_patient_year!!.error = "Introduce año valido"
             valid = false
         } else {
             id_patient_year!!.error = null

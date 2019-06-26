@@ -36,8 +36,8 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="23dp"
-                android:layout_marginBottom="28dp">
+                android:layout_marginTop="13dp"
+                android:layout_marginBottom="13dp">
 
                 <EditText
                     android:id="@+id/lg_input_mail"
@@ -52,7 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
-                android:layout_marginBottom="28dp">
+                android:layout_marginBottom="18dp">
 
                 <EditText
                     android:id="@+id/lg_input_password"
